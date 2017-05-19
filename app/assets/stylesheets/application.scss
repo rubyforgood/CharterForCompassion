@@ -1,0 +1,24 @@
+@import "bourbon";
+@import "variables";
+@import "base/base";
+
+@import "header";
+@import "forms";
+@import "fonts";
+
+* {box-sizing: border-box;}
+
+body {
+  background: $light-grey;
+}
+
+h1, h2, h3, h4 {
+  font-family: arial, sans-serif;
+  text-transform: uppercase;
+}
+
+main {
+  background: $white;
+  margin: 2rem auto;
+  padding: 1rem;
+}
