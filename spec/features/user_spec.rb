@@ -5,7 +5,7 @@ describe "the signin process" do
     context "when click Sign Up button" do
       it "redirects to sign up page" do
         visit '/'
-        click_button 'Sign Up'
+        click_link 'Sign Up'
         expect(page).to have_content 'Sign Up'
       end
     end
@@ -45,7 +45,8 @@ describe "the signin process" do
     end
 
     it "signs me in" do
-      visit 'users/sign_in'
+      visit '/'
+      click_link "Log in"
       within("#new_user") do
         fill_in 'Email', with: 'user@example.com'
         fill_in 'Password', with: 'password'
