@@ -2,15 +2,7 @@ language: ruby
 cache: bundler
 rvm: 2.3.3
 before_script:
-- psql -c 'create database "charter_for_compassion_development";' -U postgres
+- psql -c 'create database "charter_for_compassion_test";' -U postgres
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake
-# deploy:
-#   provider: heroku
-#   api_key:
-#     secure: [ --- KEY --- ]
-#   app: [ --- NAME --- ]
-#   on:
-#     branch: master
-# - "rake db:migrate"
