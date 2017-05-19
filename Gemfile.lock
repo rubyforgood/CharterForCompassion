@@ -211,7 +211,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
-  devise
+  devise (~> 4.3)
   ffaker (~> 2.5.0)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
