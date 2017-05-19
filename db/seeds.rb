@@ -69,3 +69,36 @@ User.all.each do |user|
   user.interests << interests
   user.skills    << skills
 end
+
+
+
+puts "Populating organizations..."
+ORGANIZATIONS = [
+    'AmeriCares',
+    'Amnesty International',
+    'Capital Area Food Bank',
+    'CARE',
+    'Chesapeake Bay Foundation',
+    'Childhelp',
+    'Conservation Fund',
+    'Doctors Without Borders',
+    'East Baltimore Revitalization Initiative',
+    'English Crazy Club',
+    'Gettysburg Foundation',
+    'Habitat for Humanity',
+    'Peace Corps',
+    'Ruby for Good',
+    'UNESCO',
+    'UNICEF',
+    'USA Swimming',
+].map do |organization_name|
+  Organization.create(
+      name:        organization_name,
+      description: '[not yet specified]',
+      address:     FFaker::Address.street_address,
+      city:        FFaker::Address.city,
+      state:       FFaker::AddressUS.state_abbr,
+      zipcode:     FFaker::AddressUS.zip_code,
+      website_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
+  )
+end
