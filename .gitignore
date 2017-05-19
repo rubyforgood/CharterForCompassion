@@ -19,3 +19,6 @@
 .byebug_history
 /public/packs
 /node_modules
+
+# Ignore RubyMine control directory
+.idea/
