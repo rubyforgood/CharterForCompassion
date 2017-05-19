@@ -1,0 +1,8 @@
+language: ruby
+cache: bundler
+rvm: 2.3.3
+before_script:
+- psql -c 'create database "charter_for_compassion_test";' -U postgres
+script:
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake
