@@ -1,0 +1,10 @@
+require 'spec_helper'
+
+describe Skill, type: :model do
+  context 'when all attribtes exist' do
+    it 'creates a valid skill' do
+      skill = create(:skill)
+      expect(skill.skill).to eq('programming')
+    end
+  end
+end
