@@ -19,7 +19,7 @@ NUM_USERS.times do
       last_name:  FFaker::Name.last_name,
       address:    FFaker::Address.street_address,
       city:       FFaker::Address.city,
-      state:      FFaker::AddressUS.state,
+      state:      FFaker::AddressUS.state_abbr,
       zipcode:    FFaker::AddressUS.zip_code,
       email:      FFaker::Internet.email,
       password:   'password',
