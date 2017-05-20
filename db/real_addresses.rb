@@ -19,7 +19,6 @@ class RealAddresses
     ADDRESSES.sample
   end
 
-
   def self.sample_hash
     address, city, state, zipcode = sample_array
     {
