@@ -13,4 +13,7 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :skills
   has_and_belongs_to_many :interests
+
+  has_many :organization_users
+  has_many :organizations, through: :organization_users
 end
