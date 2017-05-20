@@ -7,23 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'ffaker'
-
+require_relative 'real_addresses'
 
 NUM_USERS = 5
 
 puts "Populating User table..."
 User.destroy_all
 NUM_USERS.times do
-  User.create!(
+  User.create!(RealAddresses.sample_hash.merge(
       first_name: FFaker::Name.first_name,
       last_name:  FFaker::Name.last_name,
-      address:    FFaker::Address.street_address,
-      city:       FFaker::Address.city,
-      state:      FFaker::AddressUS.state_abbr,
-      zipcode:    FFaker::AddressUS.zip_code,
       email:      FFaker::Internet.email,
       password:   'password',
-  )
+  ))
 end
 
 
