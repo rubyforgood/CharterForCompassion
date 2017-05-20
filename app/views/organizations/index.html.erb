@@ -1,7 +1,7 @@
+<div class="create_org">
+  <%= link_to "Add Organization", new_organization_path %>
+</div>
 <% unless @organizations.blank? %>
-  <div class="create_org">
-    <%= link_to "Add Organization", new_organization_path %>
-  </div>
   <table>
     <tr><th> Name </th></tr>
     <% @organizations.each do |org| %>
@@ -13,5 +13,5 @@
     <% end %>
   </table>
 <% else %>
-  <h2> You don't curretly have any organizations. Would you like to <%= link_to "create", new_organization_path %> one?</h2>
+  <p>You don't curretly have any organizations.</p>
 <% end %>
