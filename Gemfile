@@ -15,12 +15,11 @@ gem 'puma', '~> 3.7'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Bourbon and Bitters for styles
+# Use Bourbon, Bitters, and Neat for styles
 gem 'bourbon', '5.0.0.beta.7'
 gem 'bitters', '~> 1.6'
-gem 'neat', '~> 1.6'
+gem 'neat', '~> 1.8'
 gem 'refills', group: :development
-
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -52,6 +51,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

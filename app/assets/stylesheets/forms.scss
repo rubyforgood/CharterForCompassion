@@ -6,3 +6,12 @@ input[type="submit"] {
   width: 40%;
   margin: 1rem auto;
 }
+
+.search-form {
+  @include span-columns(4);
+}
+
+.search-results-list {
+  @include shift(1);
+  @include span-columns(7);
+}

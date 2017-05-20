@@ -1,0 +1,35 @@
+<h2>Search Users</h2>
+<div class="search-form">
+  <%= form_tag search_users_path, method: :get do %>
+    <%= label_tag :interest %>
+    <%= search_field_tag 'interest' %>
+
+    <%= label_tag :skill %>
+    <%= search_field_tag 'skill' %>
+
+    <%= label_tag :distance %>
+    <%= select_tag 'distance', options_for_select(['5', '10', '25', '50', '100', '500', 'All'], params[:distance]), { include_blank: true } %>
+
+    <%= submit_tag 'Search users' %>
+  <% end %>
+</div>
+
+<div class="search-results-list">
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

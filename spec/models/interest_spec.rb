@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: interests
+#
+#  id         :integer          not null, primary key
+#  interest   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Interest, type: :model do

@@ -1,3 +1,30 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  first_name             :string           not null
+#  last_name              :string           not null
+#  address                :string           not null
+#  city                   :string           not null
+#  state                  :string           not null
+#  zipcode                :string           not null
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default("0"), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :inet
+#  last_sign_in_ip        :inet
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  latitude               :float
+#  longitude              :float
+#
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -23,6 +50,21 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
   
+  # TODO: Add support for multiple interests
+  scope :search_by_interest, (lambda { |interest|
+      joins(:interests).merge(Interest.where("interest ILIKE ?", interest)) if interest.present? })
+
+  # TODO: Add support for multiple skills
+  scope :search_by_skill, (lambda { |skill|
+      joins(:skills).merge(Skill.where("skill ILIKE ?", skill)) if skill.present? })
+
+  scope :search_by_distance, (lambda { |user, distance| 
+      return unless user.present?
+      return unless distance.present?
+      self.near([user.latitude, user.longitude], distance)
+          .where.not(id: user.id)
+    })
+
   def full_street_address
     return "#{address} #{city}, #{state} #{zipcode}"
   end

@@ -3,6 +3,7 @@
 @import "variables";
 @import "base/base";
 @import "refills/_flashes";
+@import "neat";
 
 @import "header";
 @import "forms";
@@ -24,3 +25,4 @@ main {
   margin: 2rem auto;
   padding: 1rem;
 }
+
