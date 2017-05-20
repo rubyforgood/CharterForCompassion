@@ -1,1 +1,18 @@
-<%= link_to "New Organization", new_organization_path %>
+<div class="create_org">
+  <%= link_to "Add Organization", new_organization_path %>
+</div>
+
+<% unless @organizations.blank? %>
+  <table>
+    <tr><th> Name </th></tr>
+    <% @organizations.each do |org| %>
+      <tr>
+        <td>
+          <%= link_to org.name, organization_path(org) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>You don't curretly have any organizations.</p>
+<% end %>

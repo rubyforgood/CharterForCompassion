@@ -8,6 +8,8 @@ require 'rspec/rails'
 
 require 'factory_girl_rails'
 require 'support/factories'
+
+require 'support/authentication_helper'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

@@ -17,15 +17,21 @@
       </div>
 
       <nav>
-          <%= link_to "Organizations", organizations_path %>
         <% if !user_signed_in? %>
           <%= active_link_to "Sign Up", new_user_registration_path %>
           <%= active_link_to "Log in", new_user_session_path %>
         <% else %>
+          <%= link_to "Organizations", organizations_path %>
           <%= active_link_to "Sign Out", destroy_user_session_path, method: "DELETE" %>
         <% end %>
       </nav>
     </header>
+
+    <div class="notifications">
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash-#{key}" %>
+      <% end %>
+    </div>
 
     <main>
       <%= yield %>

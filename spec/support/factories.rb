@@ -1,13 +1,15 @@
 FactoryGirl.define do
   factory :user do
-    email 'foo@example.com'
-    password 'asdfqwer'
+    sequence :email do |n|
+      "person#{n}@example.com"
+    end
+    password 'password'
     first_name 'indy'
     last_name 'vidual'
-    address 'asdf'
-    city 'asdf'
-    state 'asdf'
-    zipcode 'asdf'
+    address '1600 Pennsylvania Ave.'
+    city 'Washington'
+    state 'DC'
+    zipcode '20500'
   end
 
   factory :interest do
@@ -16,5 +18,19 @@ FactoryGirl.define do
 
   factory :skill do
     skill 'programming'
+  end
+
+  factory :organization do
+    sequence :name do |n|
+      "Organization #{n}"
+    end
+    description 'Some description'
+
+    sequence :address do |num|
+      "#{num} Times Square"
+    end
+    city 'New York'
+    state 'NY'
+    zipcode '10036'
   end
 end
