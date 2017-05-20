@@ -11,19 +11,42 @@ require 'ffaker'
 
 NUM_USERS = 5
 
+REAL_ADDRESSES = [
+    ['100 Holliday St',          'Baltimore',     'MD', '21202'],
+    ['4 South Market Building',  'Boston',        'MA', '02109'],
+    ['233 S Wacker Dr',          'Chicago',       'IL', '60606'],
+    ['2201 N Field St',          'Dallas',        'TX', '75201'],
+    ['900 Exposition Blvd',      'Los Angeles',   'CA', '90007'],
+    ['501 Marlins Way',          'Miami',         'FL', '33125'],
+    ['350 Fifth Avenue',         'New York',      'NY', '10118'],
+    ['520 Chestnut St',          'Philadelphia',  'PA', '19106'],
+    ['151 3rd St',               'San Francisco', 'CA', '94103'],
+    ['400 Broad St',             'Seattle',       'WA', '98109'],
+    ['430 South 15th St.',       'St. Louis',     'MO', '63103-2607'],
+    ['1600 Pennsylvania Ave NW', 'Washington',    'DC', '20500']
+]
+
+def random_real_address_hash
+  address, city, state, zipcode = REAL_ADDRESSES.sample
+  {
+      address: address,
+      city:    city,
+      state:   state,
+      zipcode: zipcode,
+  }
+end
+
+
 puts "Populating User table..."
 User.destroy_all
 NUM_USERS.times do
-  User.create!(
+  puts random_real_address_hash
+  User.create!(random_real_address_hash.merge(
       first_name: FFaker::Name.first_name,
       last_name:  FFaker::Name.last_name,
-      address:    FFaker::Address.street_address,
-      city:       FFaker::Address.city,
-      state:      FFaker::AddressUS.state_abbr,
-      zipcode:    FFaker::AddressUS.zip_code,
       email:      FFaker::Internet.email,
       password:   'password',
-  )
+  ))
 end
 
 
