@@ -9,7 +9,7 @@
 require 'ffaker'
 
 
-NUM_USERS = 100
+NUM_USERS = 5
 
 puts "Populating User table..."
 User.destroy_all
