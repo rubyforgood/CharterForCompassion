@@ -30,8 +30,6 @@ gem 'webpacker'
 # Allow highlighting active links
 gem 'active_link_to', '~> 1.0'
 
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 

@@ -11,5 +11,12 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+//= require jquery
 //= require_tree .
+
+$(document).ready(function() {
+
+  $('.interests').select2();
+  $('.skills').select2();
+
+})
