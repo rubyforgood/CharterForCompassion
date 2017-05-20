@@ -18,6 +18,10 @@ gem 'sass-rails', '~> 5.0'
 # Use Bourbon and Bitters for styles
 gem 'bourbon', '5.0.0.beta.7'
 gem 'bitters', '~> 1.6'
+gem 'neat', '~> 1.6'
+gem 'refills', group: :development
+
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

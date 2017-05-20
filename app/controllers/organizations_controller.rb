@@ -1,9 +1,9 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_organization, only: [:show, :edit, :update]
+  before_action :set_organization, only: [:show, :edit, :update, :add_member]
 
   def index
-    @organizations = Organization.all
+    @organizations = current_user.organizations.all
   end
 
   def show
@@ -14,7 +14,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = current_user.organizations.new(organization_params)
+    @organization = current_user.organizations.build(organization_params)
 
     if @organization.save
       flash[:success] = 'Organization saved successfully'
@@ -36,6 +36,17 @@ class OrganizationsController < ApplicationController
       flash.now[:error] = 'Unable to update organization'
       render :edit
     end
+  end
+
+  def add_member
+    user = User.find_by(email: params[:email])
+    if (user)
+      @organization.users << user
+    else
+      flash[:alert] = "Could not find a user with email: #{params[:email]}"
+    end
+
+    redirect_to @organization
   end
 
   private
