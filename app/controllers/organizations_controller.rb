@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update]
 
   def index
-    @organizations = Organization.all
+    @organizations = current_user.organizations.all
   end
 
   def show
@@ -14,7 +14,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = current_user.organizations.new(organization_params)
+    @organization = current_user.organizations.build(organization_params)
 
     if @organization.save
       flash[:success] = 'Organization saved successfully'
