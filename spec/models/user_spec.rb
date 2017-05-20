@@ -45,4 +45,11 @@ describe User, type: :model do
       end
     end
   end
+
+  describe '#name' do
+    it 'returns the first and last name together' do
+      user = create(:user, first_name: "Bob", last_name: "Smith")
+      expect(user.name).to eq("Bob Smith")
+    end
+  end
 end

@@ -19,6 +19,10 @@ class User < ApplicationRecord
   geocoded_by :full_street_address
   after_validation :geocode, if: ->(user){ user.full_street_address.present? and user.full_street_address_changed? }
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+  
   def full_street_address
     return "#{address} #{city}, #{state} #{zipcode}"
   end
