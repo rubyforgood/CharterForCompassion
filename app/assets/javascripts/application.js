@@ -15,6 +15,8 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('.interests').select2();
-})
 
+  $('.interests').select2();
+  $('.skills').select2();
+
+})

@@ -4,11 +4,15 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
-    <select class="interests" width='1000px'>
-      <% Interest.all.each do |interest| %>
-        <option value="<%= interest.id %>" data-interest="<%= interest.interest %>"><%= interest.interest %></option>
-      <% end %>
-    </select>
+    <div class="field">
+      <%= f.label :user_interests %><br />
+      <%= f.collection_select "interest_ids", Interest.all, :id, :interest, {}, html_options = {multiple: true, class: "interests" } %>
+    </div>
+
+    <div class="field">
+      <%= f.label :user_skills %><br />
+      <%= f.collection_select "skill_ids", Skill.all, :id, :skill, {}, html_options = {multiple: true, class: "skills" } %>
+    </div>
 
     <div class="field">
       <%= f.label :first_name %><br />

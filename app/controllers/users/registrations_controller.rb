@@ -19,6 +19,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
+    params["user"]["interest_ids"].delete_if {|x| x.empty?}
+    params["user"]["skill_ids"].delete_if {|x| x.empty?}
     super
   end
 
