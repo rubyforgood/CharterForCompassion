@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :organizations, through: :organization_users
 
   geocoded_by :full_street_address
-  after_validation :geocode
+  after_validation :geocode, if: ->(user){ user.full_street_address.present? and user.full_street_address_changed? }
 
   def full_street_address
     return "#{address} #{city}, #{state} #{zipcode}"

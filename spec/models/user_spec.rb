@@ -12,6 +12,13 @@ describe User, type: :model do
       expect(user.latitude).not_to be(nil)
       expect(user.longitude).not_to be(nil)
     end
+
+    it 'does not geocode if the address has not changed' do
+      user = create(:user)
+      expect(user).not_to receive(:geocode)
+      user.first_name = "Bobby"
+      user.save
+    end
   end
 
   describe '#full_street_address' do
