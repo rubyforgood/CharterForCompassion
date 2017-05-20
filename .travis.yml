@@ -1,6 +1,15 @@
 language: ruby
 cache: bundler
 rvm: 2.3.3
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://dl.yarnpkg.com/debian/ stable main'
+        key_url: 'https://dl.yarnpkg.com/debian/pubkey.gpg'
+    packages:
+      - yarn
+install:
+- yarn
 before_script:
 - psql -c 'create database "charter_for_compassion_test";' -U postgres
 - npm install -g yarn
