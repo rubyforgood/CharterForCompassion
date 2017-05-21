@@ -139,7 +139,7 @@ describe 'the search process' do
         fill_in 'Current password', with: 'password'
         click_button 'Update'
 
-        expect(page).to have_content('Charter for Compassion')
+        expect(page).to have_content('Our Vision We')
 
         within '.notifications' do
           expect(page).to have_content('Your account has been updated successfully.')
@@ -154,7 +154,7 @@ describe 'the search process' do
         fill_in 'Current password', with: 'password'
         click_button 'Update'
 
-        expect(page).to have_content('Charter for Compassion')
+        expect(page).to have_content('Our Vision We')
 
         within '.notifications' do
           expect(page).to have_content('Your account has been updated successfully.')
