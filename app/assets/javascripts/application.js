@@ -19,4 +19,18 @@ $(document).ready(function() {
   $('.interests').select2();
   $('.skills').select2();
 
+  $('.interest-search').select2({
+    allowClear: true,
+    placeholder: 'Select interest'
+    });
+
+  $('.skill-search').select2({
+    allowClear: true,
+    placeholder: 'Select skill'
+    });
+
+  $('.distance-search').select2({
+    allowClear: true,
+    placeholder: 'Select distance'
+    });
 })

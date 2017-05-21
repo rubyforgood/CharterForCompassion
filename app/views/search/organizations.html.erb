@@ -2,7 +2,7 @@
 <div class="search-form">
   <%= form_tag search_organizations_path, method: :get do %>
     <%= label_tag :distance %>
-    <%= select_tag 'distance', options_for_select(['5', '10', '25', '50', '100', '500', 'All'], params[:distance]), { include_blank: true } %>
+    <%= select_tag 'distance', options_for_select(['5', '10', '25', '50', '100', '500', 'All'], params[:distance]), { class: "distance-search", include_blank: true } %>
 
     <%= submit_tag 'Search organizations' %>
   <% end %>
