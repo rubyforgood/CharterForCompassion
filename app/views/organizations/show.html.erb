@@ -1,31 +1,32 @@
-<h2><%= @organization.name %></h2>
-<p><%= @organization.description %></p>
-<p><%= link_to "Website", @organization.website_url %></p>
+<div class="org-form">
+  <h2><%= @organization.name %></h2>
+  <p><%= @organization.description %></p>
+  <p><%= link_to "Website", @organization.website_url if @organization.website_url %></p>
 
-<div class="members">
-  <strong>Members:</strong>
-  <ul>
-    <% @organization.users.each do |user| %>
-      <li>
-        <%= user.name %>
-      </li>
-    <% end %>
-  </ul>
+  <strong>Address</strong>
+  <p>
+    <%= @organization.address %> <br />
+    <%= "#{@organization.city}, #{@organization.state} #{@organization.zipcode}" %>
+  </p>
 
-  <div class="add-member">
-    <%= form_with  url: add_member_organization_path, method: :put do |f| %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-      <%= f.submit "Add Member" %>
-    <% end %>
+  <div class="members">
+    <div>
+      <strong>Members</strong>
+      <ul>
+        <% @organization.users.each do |user| %>
+          <li>
+            <%= user.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="add-member">
+      <%= form_with  url: add_member_organization_path, method: :put do |f| %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.submit "Add Member" %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-<strong>Address:</strong>
-<p>
-  <%= @organization.address %>
-  <%= @organization.city %>
-  <%= @organization.state %>
-  <%= @organization.zipcode %>
-</p>

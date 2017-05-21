@@ -15,3 +15,12 @@ input[type="submit"] {
   @include shift(1);
   @include span-columns(7);
 }
+
+.org-form {
+  @include shift(3);
+  @include span-columns(6);
+}
+
+.add-member {
+  margin: 15px 0px;
+}
