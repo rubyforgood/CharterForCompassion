@@ -13,11 +13,15 @@
     <%= f.email_field :email, autofocus: true %>
 
     <%= f.label :user_interests, "Interests" %>
-    <%= f.collection_select "interest_ids", Interest.all, :id, :interest, {}, html_options = {multiple: true, class: "interests" } %>
+    <div class="autocomplete">
+      <%= f.collection_select "interest_ids", Interest.all, :id, :interest, {}, html_options = {multiple: true, class: "interests" } %>
+    </div>
 
     <%= f.label :user_skills, "Skills" %>
-    <%= f.collection_select "skill_ids", Skill.all, :id, :skill, {}, html_options = {multiple: true, class: "skills" } %>
-
+    <div class="autocomplete">
+      <%= f.collection_select "skill_ids", Skill.all, :id, :skill, {}, html_options = {multiple: true, class: "skills" } %>
+    </div>
+    
     <%= f.label :address %>
     <%= f.text_field :address, autofocus: true %>
 
