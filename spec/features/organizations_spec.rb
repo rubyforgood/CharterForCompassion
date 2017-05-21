@@ -10,7 +10,7 @@ describe 'When I am within the organizations view' do
     context 'When all correct pararmeters are given' do
       it 'Creates the organization and adds user to organization' do
         sign_in(@olivia)
-        click_link 'Organizations'
+        click_link 'My Organizations'
         click_link 'Add Organization'
         fill_in 'Name', with: 'Sample Org'
         fill_in 'Description', with: 'We help with cool stuff all the time!'
@@ -36,7 +36,7 @@ describe 'When I am within the organizations view' do
         organization.users << @olivia
 
         sign_in(@olivia)
-        click_link 'Organizations'
+        click_link 'My Organizations'
         click_link organization.name
       end
 
@@ -61,6 +61,66 @@ describe 'When I am within the organizations view' do
           expect(page).to have_content('Could not find a user')
         end
       end
+    end
+  end
+end
+
+describe 'the search process' do
+  context 'when clicking the "Find Organizations" button' do
+    let(:user) { create(:user) }
+
+    it 'redirects to the search organizations page' do
+      sign_in(user)
+      visit '/'
+      click_link 'Find Organizations'
+      expect(page).to have_content 'Search Organizations'
+    end
+  end
+
+  context 'when searching by distance' do
+    let(:user_one) do
+      create(
+        :user,
+        first_name: 'One and only Philadelphian',
+        address: '130 S 9th St',
+        city: 'Philadelphia',
+        state: 'PA',
+        zipcode: '19107'
+      )
+    end
+
+    let!(:org_one) do
+      create(
+        :organization,
+        name: 'Metropolitan Museum of Art',
+        address: '1000 5th Ave',
+        city: 'New York',
+        state: 'NY',
+        zipcode: '10028'
+      )
+    end
+
+    let!(:org_two) do
+      create(
+        :organization,
+        name: 'Independence Hall',
+        address: '520 Chestnut St',
+        city: 'Philadelphia',
+        state: 'PA',
+        zipcode: '19106'
+      )
+    end
+
+    before do
+      sign_in(user_one)
+      visit '/search/organizations'
+    end
+
+    it 'returns a list of organizations by distance' do
+      select '50', from: 'distance'
+      click_button 'Search organizations'
+      expect(page).to have_content org_two.name
+      expect(page).not_to have_content org_one.name
     end
   end
 end

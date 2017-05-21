@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   get '/search/users', to: 'search#users', as: 'search_users'
+  get '/search/organizations', to: 'search#organizations', as: 'search_organizations'
 end
