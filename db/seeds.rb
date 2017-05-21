@@ -88,13 +88,9 @@ ORGANIZATIONS = [
     'UNICEF',
     'USA Swimming',
 ].map do |organization_name|
-  Organization.create(
+  Organization.create!(RealAddresses.sample_hash.merge(
       name:        organization_name,
       description: '[not yet specified]',
-      address:     FFaker::Address.street_address,
-      city:        FFaker::Address.city,
-      state:       FFaker::AddressUS.state_abbr,
-      zipcode:     FFaker::AddressUS.zip_code,
-      website_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
-  )
+      website_url: "http://www.#{organization_name.gsub(' ', '_')}.org",
+  ))
 end
