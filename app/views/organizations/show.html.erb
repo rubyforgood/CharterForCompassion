@@ -22,7 +22,7 @@
     </div>
 
     <div class="add-member">
-      <%= form_with  url: add_member_organization_path, method: :put do |f| %>
+      <%= form_with url: add_member_organization_path, method: :put, data: { remote: false } do |f| %>
         <%= f.label :email %>
         <%= f.text_field :email %>
         <%= f.submit "Add Member" %>
