@@ -10,7 +10,7 @@ describe 'When I am within the organizations view' do
     context 'When all correct pararmeters are given' do
       it 'Creates the organization and adds user to organization' do
         sign_in(@olivia)
-        click_link 'Organizations'
+        click_link 'My Organizations'
         click_link 'Add Organization'
         fill_in 'Name', with: 'Sample Org'
         fill_in 'Description', with: 'We help with cool stuff all the time!'
@@ -36,7 +36,7 @@ describe 'When I am within the organizations view' do
         organization.users << @olivia
 
         sign_in(@olivia)
-        click_link 'Organizations'
+        click_link 'My Organizations'
         click_link organization.name
       end
 

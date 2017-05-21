@@ -41,13 +41,13 @@ describe "the signin process" do
 end
 
 describe 'the search process' do
-  context 'when clicking the "Find Near Me" button' do
+  context 'when clicking the "Find Users" button' do
     let(:user) { create(:user) }
 
     it 'redirects to the search users page' do
       sign_in(user)
       visit '/'
-      click_link 'Find Near Me'
+      click_link 'Find Users'
       expect(page).to have_content 'Search Users'
     end
   end
