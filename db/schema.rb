@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521132425) do
+ActiveRecord::Schema.define(version: 20170521134401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20170521132425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["interest"], name: "index_interests_on_interest", unique: true
+  end
+
+  create_table "interests_organizations", id: false, force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "interest_id", null: false
+    t.index ["interest_id"], name: "index_interests_organizations_on_interest_id"
+    t.index ["organization_id"], name: "index_interests_organizations_on_organization_id"
   end
 
   create_table "interests_users", id: false, force: :cascade do |t|
@@ -49,6 +56,13 @@ ActiveRecord::Schema.define(version: 20170521132425) do
     t.string "website_url"
     t.float "latitude"
     t.float "longitude"
+  end
+
+  create_table "organizations_skills", id: false, force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "skill_id", null: false
+    t.index ["organization_id"], name: "index_organizations_skills_on_organization_id"
+    t.index ["skill_id"], name: "index_organizations_skills_on_skill_id"
   end
 
   create_table "projects", force: :cascade do |t|

@@ -18,6 +18,8 @@ class Organization < ApplicationRecord
 
   geocoded_by :full_street_address
   after_validation :geocode, if: ->(org){ org.full_street_address.present? and org.full_street_address_changed? }
+  has_and_belongs_to_many :skills
+  has_and_belongs_to_many :interests
 
   with_options presence: true do
     validates :name

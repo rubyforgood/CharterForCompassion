@@ -1,6 +1,10 @@
 <div class="org-form">
   <h2><%= @organization.name %></h2>
   <p><%= simple_format(@organization.description) %></p>
+  <strong>Skills:</strong>
+  <p><%= @organization.skills.map(&:skill).join(", ") %></p>
+  <strong>Interests:</strong>
+  <p><%= @organization.interests.map(&:interest).join(", ") %></p>
   <p><%= link_to "Website", @organization.website_url if @organization.website_url %></p>
 
   <strong>Address</strong>
