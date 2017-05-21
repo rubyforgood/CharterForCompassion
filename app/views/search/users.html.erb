@@ -25,10 +25,17 @@
     </thead>
     <tbody>
       <% @users.each do |user| %>
-        <tr>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name %></td>
-          <td><%= user.email %></td>
+        <% if user.private %>
+          <tr>
+            <td>Private</td>
+            <td>Private</td>
+            <td>Private</td>
+        <% else %>
+          <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+        <% end %>
       <% end %>
     </tbody>
   </table>

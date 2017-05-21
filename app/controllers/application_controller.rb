@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     added_attrs = [{skill_ids: [], interest_ids: [] }, :first_name, :last_name, :email, :private, :address, :city, :state, :zipcode, :password, :password_confirmation]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit(:account_update) do |user_params|
-      user_params.permit({skill_ids: [], interest_ids: [] }, :first_name, :last_name, :email, :address, :city, :state, :zipcode, :password, :password_confirmation, :current_password)
+      user_params.permit({skill_ids: [], interest_ids: [] }, :first_name, :last_name, :email, :private, :address, :city, :state, :zipcode, :password, :password_confirmation, :current_password)
     end
 
   end
