@@ -30,9 +30,9 @@ class Organization < ApplicationRecord
   end
 
   scope :search_by_distance, (lambda { |user, distance| 
-      return unless user.present?
-      return unless distance.present?
-      self.near([user.latitude, user.longitude], distance)
+      if user.present? && distance.present?
+        self.near([user.latitude, user.longitude], distance)
+      end
     })
 
   def full_street_address
