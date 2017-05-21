@@ -1,6 +1,6 @@
 <div class="org-form">
   <h2><%= @organization.name %></h2>
-  <p><%= @organization.description %></p>
+  <p><%= simple_format(@organization.description) %></p>
   <p><%= link_to "Website", @organization.website_url if @organization.website_url %></p>
 
   <strong>Address</strong>

@@ -22,6 +22,12 @@ NUM_USERS.times do
   ))
 end
 
+User.create!(RealAddresses.sample_hash.merge(
+    first_name: FFaker::Name.first_name,
+    last_name:  FFaker::Name.last_name,
+    email:      "bob@example.com",
+    password:   'password',
+))
 
 puts "Populating skills..."
 Skill.destroy_all
@@ -90,7 +96,7 @@ ORGANIZATIONS = [
 ].map do |organization_name|
   Organization.create!(RealAddresses.sample_hash.merge(
       name:        organization_name,
-      description: '[not yet specified]',
+      description: FFaker::Lorem.paragraphs(rand(1..3)).join("\n\n"),
       website_url: "http://www.#{organization_name.gsub(' ', '_')}.org",
   ))
 end
@@ -98,9 +104,5 @@ end
 
 puts "Populating projects..."
 10.times do |n|
-  Project.create(
-      name: "Project #{n}",
-      description: "Description #{n}",
-      url: "http://www.project#{n}.org",
-  )
+  FactoryGirl.create(:project)
 end
