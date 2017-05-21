@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     put 'add_member', on: :member
   end
 
+  get '/search/users', to: 'search#users', as: 'search_users'
 end
