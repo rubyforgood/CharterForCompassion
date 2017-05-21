@@ -13,6 +13,11 @@
     <%= f.label :email %>
     <%= f.email_field :email %>
 
+    <%= f.label :private %>
+    <%= f.check_box :private, autofocus: true %>
+    <br/>
+    <em> Check this box if you wish to remain anonymous in searches
+    
     <%= f.label :user_interests, "Interests" %>
     <div class="autocomplete">
       <%= f.collection_select "interest_ids", Interest.all, :id, :interest, {}, html_options = {multiple: true, class: "interests" } %>

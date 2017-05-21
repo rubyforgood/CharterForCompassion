@@ -35,6 +35,10 @@ describe User, type: :model do
       expect(user.valid?).to be(true)
     end
 
+    it 'is not private' do
+      expect(user.private).to be(false)
+    end
+
     it 'geocodes the address' do
       expect(user.latitude).not_to be(nil)
       expect(user.longitude).not_to be(nil)
