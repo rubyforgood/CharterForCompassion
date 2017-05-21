@@ -28,3 +28,16 @@ input[type="submit"] {
 .autocomplete {
   margin-bottom: .75rem;
 }
+
+.homepage {
+  .video {
+    float: left;
+    width: 50%;
+    min-width: 500px;
+  }
+  .info {
+    width: 50%;
+    padding: 1rem;
+    float: right;
+  }
+}
