@@ -24,7 +24,7 @@ describe "the signin process" do
         fill_in 'Password', with: 'password'
         fill_in 'Password confirmation', with: 'password'
         click_button 'Sign up'
-        expect(page).to have_content 'Charter for Compassion'
+        expect(page).to have_content 'Our Vision'
     end
   end
 
@@ -35,7 +35,7 @@ describe "the signin process" do
 
     it "signs me in" do
       sign_in(@user)
-      expect(page).to have_content 'Charter for Compassion'
+      expect(page).to have_content 'Our Vision'
     end
   end
 end
