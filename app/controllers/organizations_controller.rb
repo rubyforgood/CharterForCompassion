@@ -51,7 +51,10 @@ class OrganizationsController < ApplicationController
 
   private
   def organization_params
-    params.require(:organization).permit(:name, :address, :description, :city,
+    params["organization"]["interest_ids"].delete_if {|x| x.empty?}
+    params["organization"]["skill_ids"].delete_if {|x| x.empty?}
+
+    params.require(:organization).permit({skill_ids: [], interest_ids: [] }, :name, :address, :description, :city,
       :state, :zipcode)
   end
 

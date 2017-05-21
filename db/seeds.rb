@@ -13,7 +13,7 @@ NUM_USERS = 5
 
 puts "Populating users..."
 User.destroy_all
-NUM_USERS.times do
+USERS = Array.new(NUM_USERS).map do |user_num|
   User.create!(RealAddresses.sample_hash.merge(
       first_name: FFaker::Name.first_name,
       last_name:  FFaker::Name.last_name,
@@ -74,7 +74,8 @@ end
 
 
 
-puts "Populating organizations..."
+puts "Populating Organizations..."
+Organization.destroy_all
 ORGANIZATIONS = [
     'AmeriCares',
     'Amnesty International',
@@ -105,4 +106,16 @@ end
 puts "Populating projects..."
 10.times do |n|
   FactoryGirl.create(:project)
+end
+
+puts "Populating Organization interests and skills..."
+Organization.all.each do |org|
+  interests = Array.new(rand(7)) { INTERESTS.sample }.uniq
+  skills    = Array.new(rand(7)) { SKILLS.sample }.uniq
+  users     = Array.new(rand(3)) { USERS.sample }.uniq
+
+  org.interests << interests
+  org.skills    << skills
+
+  org.users << users
 end

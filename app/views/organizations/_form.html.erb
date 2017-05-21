@@ -28,7 +28,17 @@
     <%= f.label :zipcode %>
     <%= f.text_field :zipcode %>
   </div>
-  
+
+  <div class="field">
+    <%= f.label :organization_interests %><br />
+    <%= f.collection_select "interest_ids", Interest.all, :id, :interest, {}, html_options = {multiple: true, class: "interests" } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :organization_skills %><br />
+    <%= f.collection_select "skill_ids", Skill.all, :id, :skill, {}, html_options = {multiple: true, class: "skills" } %>
+  </div>
+
   <div class="field">
     <%= f.submit %>
   </div>
