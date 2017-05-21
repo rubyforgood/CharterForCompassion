@@ -11,7 +11,7 @@ require_relative 'real_addresses'
 
 NUM_USERS = 5
 
-puts "Populating User table..."
+puts "Populating users..."
 User.destroy_all
 NUM_USERS.times do
   User.create!(RealAddresses.sample_hash.merge(
@@ -23,7 +23,7 @@ NUM_USERS.times do
 end
 
 
-puts "Populating Skill table..."
+puts "Populating skills..."
 Skill.destroy_all
 SKILLS = %w(
   athletic
@@ -40,7 +40,7 @@ SKILLS = %w(
 ).map {  |skill| Skill.create(skill: skill) }
 
 
-puts "Populating Interest table..."
+puts "Populating interests..."
 Interest.destroy_all
 INTERESTS = [
   'abuse prevention',
@@ -57,7 +57,7 @@ INTERESTS = [
 ].map {|interest| Interest.create(interest: interest) }
 
 
-puts "Populating User interests and skills..."
+puts "Populating user interests and skills..."
 User.all.each do |user|
   interests = Array.new(rand(7)) { INTERESTS.sample }.uniq
   skills    = Array.new(rand(7)) { SKILLS.sample }.uniq
@@ -96,5 +96,15 @@ ORGANIZATIONS = [
       state:       FFaker::AddressUS.state_abbr,
       zipcode:     FFaker::AddressUS.zip_code,
       website_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
+  )
+end
+
+
+puts "Populating projects..."
+10.times do |n|
+  Project.create(
+      name: "Project #{n}",
+      description: "Description #{n}",
+      url: "http://www.project#{n}.org",
   )
 end
