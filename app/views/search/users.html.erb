@@ -2,13 +2,13 @@
 <div class="search-form">
   <%= form_tag search_users_path, method: :get do %>
     <%= label_tag :interest %>
-    <%= search_field_tag 'interest' %>
+    <%= select_tag "interest", options_for_select(Interest.all.map(&:interest), params[:interest]), { class: "interest-search", include_blank: true } %>
 
     <%= label_tag :skill %>
-    <%= search_field_tag 'skill' %>
+    <%= select_tag "skill", options_for_select(Skill.all.map(&:skill), params[:skill]), { class: "skill-search", include_blank: true } %>
 
     <%= label_tag :distance %>
-    <%= select_tag 'distance', options_for_select(['5', '10', '25', '50', '100', '500', 'All'], params[:distance]), { include_blank: true } %>
+    <%= select_tag 'distance', options_for_select(['5', '10', '25', '50', '100', '500', 'All'], params[:distance]), { class: "distance-search", include_blank: true } %>
 
     <%= submit_tag 'Search users' %>
   <% end %>

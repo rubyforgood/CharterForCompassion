@@ -101,7 +101,7 @@ describe 'the search process' do
     end
 
     it 'returns a list of users by distance and interest' do
-      fill_in 'interest', with: user_one.interests.first.interest
+      select user_one.interests.first.interest, from: 'interest'
       select '500', from: 'distance'
       click_button 'Search users'
       expect(page).to have_content user_one.first_name
@@ -109,7 +109,7 @@ describe 'the search process' do
     end
 
     it 'returns a list of users by distance and skill' do
-      fill_in 'skill', with: user_three.skills.first.skill
+      select user_three.skills.first.skill, from: 'skill'
       select '10', from: 'distance'
       click_button 'Search users'
       expect(page).to have_content user_three.first_name
