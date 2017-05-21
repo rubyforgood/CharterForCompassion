@@ -1,3 +1,5 @@
+require 'ffaker'
+
 FactoryGirl.define do
   factory :project do
     sequence :name do |n|
