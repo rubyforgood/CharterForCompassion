@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170521014625) do
 
   create_table "organizations", force: :cascade do |t|
     t.string "name", null: false
-    t.text "description", null: false
+    t.text "description"
     t.string "address", null: false
     t.string "city", null: false
     t.string "state", null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170521014625) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "description"
     t.text "url"
     t.datetime "created_at", null: false
