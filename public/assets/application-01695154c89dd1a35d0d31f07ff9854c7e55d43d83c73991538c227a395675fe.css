@@ -1,0 +1,516 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,700,900");
+/* line 4, /Users/adambray/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/neat-1.8.0/app/assets/stylesheets/grid/_box-sizing.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 9, /Users/adambray/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/neat-1.8.0/app/assets/stylesheets/grid/_box-sizing.scss */
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* line 1, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_buttons.scss */
+button, [type='button'], [type='reset'], [type='submit'] {
+  appearance: none;
+  background-color: #65c1cf;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1.5em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+/* line 22, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_buttons.scss */
+button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
+  background-color: #519aa6;
+  color: #fff;
+}
+/* line 27, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_buttons.scss */
+button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus {
+  outline: 3px solid #65c1cf;
+  outline-offset: 2px;
+}
+/* line 32, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_buttons.scss */
+button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submit']:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+/* line 36, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_buttons.scss */
+button:disabled:hover, [type='button']:disabled:hover, [type='reset']:disabled:hover, [type='submit']:disabled:hover {
+  background-color: #65c1cf;
+}
+
+/* line 4, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+fieldset {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 11, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+legend {
+  font-weight: 600;
+  margin-bottom: 0.375em;
+  padding: 0;
+}
+
+/* line 17, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.375em;
+}
+
+/* line 23, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+input,
+select,
+textarea {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  font-size: 16px;
+}
+
+/* line 31, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type='color'], [type='date'], [type='datetime'], [type='datetime-local'], [type='email'], [type='month'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='time'], [type='url'], [type='week'], input:not([type]), textarea {
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-bottom: 0.75em;
+  padding: 0.5em;
+  transition: border-color 150ms ease;
+  width: 100%;
+}
+/* line 43, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type='color']:hover, [type='date']:hover, [type='datetime']:hover, [type='datetime-local']:hover, [type='email']:hover, [type='month']:hover, [type='number']:hover, [type='password']:hover, [type='search']:hover, [type='tel']:hover, [type='text']:hover, [type='time']:hover, [type='url']:hover, [type='week']:hover, input:not([type]):hover, textarea:hover {
+  border-color: #b1b1b1;
+}
+/* line 47, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type='color']:focus, [type='date']:focus, [type='datetime']:focus, [type='datetime-local']:focus, [type='email']:focus, [type='month']:focus, [type='number']:focus, [type='password']:focus, [type='search']:focus, [type='tel']:focus, [type='text']:focus, [type='time']:focus, [type='url']:focus, [type='week']:focus, input:not([type]):focus, textarea:focus {
+  border-color: #65c1cf;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(101, 193, 207, 0.7);
+  outline: none;
+}
+/* line 53, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type='color']:disabled, [type='date']:disabled, [type='datetime']:disabled, [type='datetime-local']:disabled, [type='email']:disabled, [type='month']:disabled, [type='number']:disabled, [type='password']:disabled, [type='search']:disabled, [type='tel']:disabled, [type='text']:disabled, [type='time']:disabled, [type='url']:disabled, [type='week']:disabled, input:not([type]):disabled, textarea:disabled {
+  background-color: #f2f2f2;
+  cursor: not-allowed;
+}
+/* line 57, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type='color']:disabled:hover, [type='date']:disabled:hover, [type='datetime']:disabled:hover, [type='datetime-local']:disabled:hover, [type='email']:disabled:hover, [type='month']:disabled:hover, [type='number']:disabled:hover, [type='password']:disabled:hover, [type='search']:disabled:hover, [type='tel']:disabled:hover, [type='text']:disabled:hover, [type='time']:disabled:hover, [type='url']:disabled:hover, [type='week']:disabled:hover, input:not([type]):disabled:hover, textarea:disabled:hover {
+  border: 1px solid #ddd;
+}
+/* line 62, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type='color']::placeholder, [type='date']::placeholder, [type='datetime']::placeholder, [type='datetime-local']::placeholder, [type='email']::placeholder, [type='month']::placeholder, [type='number']::placeholder, [type='password']::placeholder, [type='search']::placeholder, [type='tel']::placeholder, [type='text']::placeholder, [type='time']::placeholder, [type='url']::placeholder, [type='week']::placeholder, input:not([type])::placeholder, textarea::placeholder {
+  color: #858585;
+}
+
+/* line 67, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 71, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type="checkbox"],
+[type="radio"] {
+  display: inline;
+  margin-right: 0.375em;
+}
+
+/* line 77, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type="file"] {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+/* line 82, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+select {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+/* line 91, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_forms.scss */
+[type="checkbox"]:focus,
+[type="radio"]:focus,
+[type="file"]:focus,
+select:focus {
+  outline: 3px solid #65c1cf;
+  outline-offset: 2px;
+}
+
+/* line 1, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_layout.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 5, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_layout.scss */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* line 11, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_layout.scss */
+html,
+body {
+  height: 100%;
+}
+
+/* line 16, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_layout.scss */
+body {
+  margin: 0;
+}
+
+/* line 1, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_lists.scss */
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 8, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_lists.scss */
+dl {
+  margin: 0;
+}
+
+/* line 12, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_lists.scss */
+dt {
+  font-weight: 600;
+  margin: 0;
+}
+
+/* line 17, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_lists.scss */
+dd {
+  margin: 0;
+}
+
+/* line 1, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_media.scss */
+figure {
+  margin: 0;
+}
+
+/* line 5, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_media.scss */
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+/* line 1, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_tables.scss */
+table {
+  border-collapse: collapse;
+  margin: 0.75em 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* line 8, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_tables.scss */
+th {
+  border-bottom: 1px solid #a6a6a6;
+  font-weight: 600;
+  padding: 0.75em 0;
+  text-align: left;
+}
+
+/* line 15, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_tables.scss */
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.75em 0;
+}
+
+/* line 20, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_tables.scss */
+tr,
+td,
+th {
+  vertical-align: middle;
+}
+
+/* line 1, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_typography.scss */
+html {
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+/* line 8, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_typography.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  font-size: 1.25em;
+  line-height: 1.2;
+  margin: 0 0 0.75em;
+}
+
+/* line 20, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_typography.scss */
+p {
+  margin: 0 0 0.75em;
+}
+
+/* line 24, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_typography.scss */
+a {
+  color: #65c1cf;
+  text-decoration-skip: ink;
+  transition: color 150ms ease;
+}
+/* line 29, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_typography.scss */
+a:hover {
+  color: #4c919b;
+}
+/* line 33, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_typography.scss */
+a:focus {
+  outline: 3px solid #65c1cf;
+  outline-offset: 2px;
+}
+
+/* line 39, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/base/_typography.scss */
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 1.5em 0;
+}
+
+/* line 10, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-alert {
+  background-color: #fff6bf;
+  color: #66624c;
+  display: block;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
+  text-align: center;
+}
+/* line 18, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-alert a {
+  color: #4d4a39;
+  text-decoration: underline;
+}
+/* line 22, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-alert a:focus, .flash-alert a:hover {
+  color: #1a1913;
+}
+
+/* line 10, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-error {
+  background-color: #fbe3e4;
+  color: #645b5b;
+  display: block;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
+  text-align: center;
+}
+/* line 18, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-error a {
+  color: #4b4444;
+  text-decoration: underline;
+}
+/* line 22, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-error a:focus, .flash-error a:hover {
+  color: #191717;
+}
+
+/* line 10, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-notice {
+  background-color: #e5edf8;
+  color: #5c5f63;
+  display: block;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
+  text-align: center;
+}
+/* line 18, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-notice a {
+  color: #45474a;
+  text-decoration: underline;
+}
+/* line 22, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-notice a:focus, .flash-notice a:hover {
+  color: #171819;
+}
+
+/* line 10, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-success {
+  background-color: #e6efc2;
+  color: #5c604e;
+  display: block;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
+  text-align: center;
+}
+/* line 18, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-success a {
+  color: #45483a;
+  text-decoration: underline;
+}
+/* line 22, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/refills/_flashes.scss */
+.flash-success a:focus, .flash-success a:hover {
+  color: #171813;
+}
+
+/* line 4, /Users/adambray/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/neat-1.8.0/app/assets/stylesheets/grid/_box-sizing.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 9, /Users/adambray/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/neat-1.8.0/app/assets/stylesheets/grid/_box-sizing.scss */
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* line 1, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/header.scss */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.35);
+  background: black;
+}
+/* line 9, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/header.scss */
+header .logo {
+  margin: 1rem;
+}
+/* line 13, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/header.scss */
+header nav {
+  margin: 1rem;
+  font-family: Raleway, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+/* line 21, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/header.scss */
+header nav a {
+  display: inline-block;
+  padding: 0 .5rem;
+  color: #fff;
+  text-decoration: none;
+}
+/* line 27, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/header.scss */
+header nav a:hover {
+  color: #65c1cf;
+}
+/* line 31, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/header.scss */
+header nav a.active {
+  color: #65c1cf;
+}
+
+/* line 1, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+input[type="submit"] {
+  text-transform: uppercase;
+}
+
+/* line 5, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.registration_form, .login {
+  width: 40%;
+  margin: 1rem auto;
+}
+
+/* line 10, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.search-form {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}
+/* line 89, /Users/adambray/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/neat-1.8.0/app/assets/stylesheets/grid/_span-columns.scss */
+.search-form:last-child {
+  margin-right: 0;
+}
+
+/* line 14, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.search-results-list {
+  margin-left: 8.5298%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 57.35098%;
+}
+/* line 89, /Users/adambray/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/neat-1.8.0/app/assets/stylesheets/grid/_span-columns.scss */
+.search-results-list:last-child {
+  margin-right: 0;
+}
+
+/* line 19, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.org-form {
+  margin-left: 25.58941%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 89, /Users/adambray/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/neat-1.8.0/app/assets/stylesheets/grid/_span-columns.scss */
+.org-form:last-child {
+  margin-right: 0;
+}
+
+/* line 24, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.add-member {
+  margin: 15px 0px;
+}
+
+/* line 28, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.autocomplete {
+  margin-bottom: .75rem;
+}
+
+/* line 33, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.homepage .video {
+  float: left;
+  width: 50%;
+  min-width: 500px;
+}
+/* line 38, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.homepage .info {
+  width: 50%;
+  padding: 1rem;
+  float: right;
+}
+
+/* line 45, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/forms.scss */
+.select2-container {
+  margin: 0px 0px 15px 0px !important;
+}
+
+/* line 12, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/application.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 14, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/application.scss */
+body {
+  background: #f0f0f0;
+}
+
+/* line 18, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/application.scss */
+h1, h2, h3, h4 {
+  font-family: arial, sans-serif;
+  text-transform: uppercase;
+}
+
+/* line 23, /Users/adambray/code/rubyforgood/charter_for_compassion/app/assets/stylesheets/application.scss */
+main {
+  background: #fff;
+  margin: 2rem auto;
+  padding: 1rem;
+  overflow: hidden;
+}

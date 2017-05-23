@@ -116,4 +116,50 @@ describe 'the search process' do
       expect(page).not_to have_content user_one.first_name
     end
   end
+
+  describe 'When a user edits their profile' do
+    context 'and all attributes are specified correctly' do
+      before :each do
+        @user = create(:user)
+      end
+
+      it "allows me to update my profile" do
+        sign_in(@user)
+        visit '/users/edit'
+        check class: 'private'
+        fill_in 'First name', with: 'Sally'
+        fill_in 'Last name', with: 'Sue'
+        fill_in 'Email', with: 'different@example.com'
+        fill_in 'Address', with: '123 Main Street'
+        fill_in 'City', with: 'Gotham'
+        fill_in 'State', with: 'NY'
+        fill_in 'Zipcode', with: '12345'
+        fill_in 'Password', with: 'asdfqwer'
+        fill_in 'Password confirmation', with: 'asdfqwer'
+        fill_in 'Current password', with: 'password'
+        click_button 'Update'
+
+        expect(page).to have_content('Our Vision We')
+
+        within '.notifications' do
+          expect(page).to have_content('Your account has been updated successfully.')
+        end
+      end
+
+      it 'allows me to set my profile to private' do
+        sign_in(@user)
+        visit '/users/edit'
+        check class: 'private'
+
+        fill_in 'Current password', with: 'password'
+        click_button 'Update'
+
+        expect(page).to have_content('Our Vision We')
+
+        within '.notifications' do
+          expect(page).to have_content('Your account has been updated successfully.')
+        end
+      end
+    end
+  end
 end
