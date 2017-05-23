@@ -126,7 +126,7 @@ describe 'the search process' do
       it "allows me to update my profile" do
         sign_in(@user)
         visit '/users/edit'
-        check 'Private'
+        check class: 'private'
         fill_in 'First name', with: 'Sally'
         fill_in 'Last name', with: 'Sue'
         fill_in 'Email', with: 'different@example.com'
@@ -149,7 +149,7 @@ describe 'the search process' do
       it 'allows me to set my profile to private' do
         sign_in(@user)
         visit '/users/edit'
-        check 'Private'
+        check class: 'private'
 
         fill_in 'Current password', with: 'password'
         click_button 'Update'

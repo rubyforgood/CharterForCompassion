@@ -3,36 +3,45 @@
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
+
     <%= f.label :first_name %>
     <%= f.text_field :first_name, autofocus: true %>
 
     <%= f.label :last_name %>
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.text_field :last_name %>
 
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
+
+    <%= f.label :private do %>
+      <%= f.check_box :private, class: 'private' %> Show my name in search results
+    <% end %>
 
     <%= f.label :user_interests, "Interests" %>
     <div class="autocomplete">
-      <%= f.collection_select "interest_ids", Interest.all, :id, :interest, {}, html_options = {multiple: true, class: "interests" } %>
+      <%= f.collection_select "interest_ids",
+            Interest.all, :id, :interest, {},
+            html_options = {multiple: true, class: "interests" } %>
     </div>
 
     <%= f.label :user_skills, "Skills" %>
     <div class="autocomplete">
-      <%= f.collection_select "skill_ids", Skill.all, :id, :skill, {}, html_options = {multiple: true, class: "skills" } %>
+      <%= f.collection_select "skill_ids",
+            Skill.all, :id, :skill, {},
+            html_options = {multiple: true, class: "skills" } %>
     </div>
-    
+
     <%= f.label :address %>
-    <%= f.text_field :address, autofocus: true %>
+    <%= f.text_field :address %>
 
     <%= f.label :city %>
-    <%= f.text_field :city, autofocus: true %>
+    <%= f.text_field :city %>
 
     <%= f.label :state %>
-    <%= f.text_field :state, autofocus: true %>
+    <%= f.text_field :state %>
 
     <%= f.label :zipcode %>
-    <%= f.text_field :zipcode, autofocus: true %>
+    <%= f.text_field :zipcode %>
 
     <%= f.label :password %>
     <% if @minimum_password_length %>

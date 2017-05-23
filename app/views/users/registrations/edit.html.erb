@@ -1,5 +1,5 @@
 <div class="registration_form">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2>Edit Profile</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -13,21 +13,24 @@
     <%= f.label :email %>
     <%= f.email_field :email %>
 
-    <%= f.label :private %>
-    <%= f.check_box :private, autofocus: true %>
-    <br/>
-    <em> Check this box if you wish to remain anonymous in searches
-    
+    <%= f.label :private do %>
+      <%= f.check_box :private, class: 'private' %> Show my name in search results
+    <% end %>
+
     <%= f.label :user_interests, "Interests" %>
     <div class="autocomplete">
-      <%= f.collection_select "interest_ids", Interest.all, :id, :interest, {}, html_options = {multiple: true, class: "interests" } %>
+      <%= f.collection_select "interest_ids",
+            Interest.all, :id, :interest, {},
+            html_options = {multiple: true, class: "interests" } %>
     </div>
 
     <%= f.label :user_skills, "Skills" %>
     <div class="autocomplete">
-      <%= f.collection_select "skill_ids", Skill.all, :id, :skill, {}, html_options = {multiple: true, class: "skills" } %>
+      <%= f.collection_select "skill_ids",
+            Skill.all, :id, :skill, {},
+            html_options = {multiple: true, class: "skills" } %>
     </div>
-    
+
     <%= f.label :address %>
     <%= f.text_field :address %>
 
@@ -64,7 +67,7 @@
 
   <h3>Cancel my account</h3>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
   <%= link_to "Back", :back %>
 </div>
