@@ -13,12 +13,13 @@
 !/log/.keep
 !/tmp/.keep
 
+.byebug_history
+
+# Ignore Assets
+/public/packs
+/public/assets
 /node_modules
 /yarn-error.log
-
-.byebug_history
-/public/packs
-/node_modules
 
 # Ignore RubyMine control directory
 .idea/
