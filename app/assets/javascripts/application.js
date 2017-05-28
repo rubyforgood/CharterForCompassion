@@ -12,6 +12,8 @@
 //
 //= require rails-ujs
 //= require jquery
+//= underscore
+//= gmaps/google
 //= require_tree .
 
 $(document).ready(function() {

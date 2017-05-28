@@ -7,13 +7,21 @@ input[type="submit"] {
   margin: 1rem auto;
 }
 
+.search-form-and-map {
+  @include span-columns(12)
+}
+
 .search-form {
   @include span-columns(4);
 }
 
+.search-map {
+  @include span-columns(7)
+}
+
 .search-results-list {
-  @include shift(1);
-  @include span-columns(7);
+  @include shift(2);
+  @include span-columns(8);
 }
 
 .org-form {
