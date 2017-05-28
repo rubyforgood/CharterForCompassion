@@ -19,6 +19,11 @@ input[type="submit"] {
   @include span-columns(7)
 }
 
+.search-no-results {
+  @include shift(2);
+  @include span-columns(8);
+}
+
 .search-results-list {
   @include shift(2);
   @include span-columns(8);
