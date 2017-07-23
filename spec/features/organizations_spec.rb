@@ -61,6 +61,17 @@ describe 'When I am within the organizations view' do
           expect(page).to have_content('Could not find a user')
         end
       end
+
+      it 'displays a warning if the user is already part of the organization' do
+        within '.add-member' do
+          fill_in 'email', with: "#{@olivia.email}"
+          click_button 'Add Member'
+        end
+
+        within '.notifications' do
+          expect(page).to have_content('already part of the organization')
+        end
+      end
     end
   end
 end
