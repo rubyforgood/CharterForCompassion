@@ -31,35 +31,50 @@ User.create!(RealAddresses.sample_hash.merge(
 
 puts "Populating skills..."
 Skill.destroy_all
-SKILLS = %w(
-  athletic
-  computer
-  construction
-  counseling
-  cyber
-  dental
-  driving
-  mechanical
-  medical
-  organizing
-  teaching
-).map {  |skill| Skill.create(skill: skill) }
+SKILLS = [
+    'accountant',
+    'administration',
+    'animator',
+    'business acumen',
+    'curriculum designer',
+    'e-commerce',
+    'editor – film',
+    'editor – print',
+    'educator',
+    'facilitation',
+    'filmmaker',
+    'fundraising',
+    'graphic arts',
+    'grassroots organizing',
+    'IT',
+    'IT - Joomla',
+    'IT – civicCRM',
+    'journalist - writer',
+    'marketing',
+    'mentoring',
+    'organizational coordinator',
+    'public speaking',
+    'social media',
+].map {  |skill| Skill.create(skill: skill) }
 
 
 puts "Populating interests..."
 Interest.destroy_all
 INTERESTS = [
-  'abuse prevention',
-  'agriculture',
-  'athletic',
-  'child care',
-  'computer',
-  'construction',
-  'food banks',
-  'medical',
-  'recycling',
-  'teaching',
-  'urban renewal',
+    'arts',
+    'aging and elder issues',
+    'healthcare',
+    'education',
+    'business',
+    'environment',
+    'peace',
+    'restorative justice',
+    'social justice',
+    'social services',
+    'science and research',
+    'religion/interfaith/spirituality',
+    'women and girls',
+    'youth',
 ].map {|interest| Interest.create(interest: interest) }
 
 
