@@ -24,14 +24,14 @@ describe Organization, type: :model do
     let(:organization) do
       create(
         :organization,
-        address: '123 Main St.',
+        street: '123 Main St.',
         city: 'Spring',
         state: 'VA',
         zipcode: '20009'
       )
     end
 
-    it 'returns a string with the address, city, state, and zip code combined' do
+    it 'returns a string with the street, city, state, and zip code combined' do
       expect(organization.full_street_address).to eq('123 Main St. Spring, VA 20009')
     end
   end
@@ -39,10 +39,10 @@ describe Organization, type: :model do
   describe '#full_street_address_changed?' do
     let(:organization) { create(:organization) }
 
-    it 'returns true if any of address, city, state, zipcode changes' do
+    it 'returns true if any of street, city, state, zipcode changes' do
       expect(organization.full_street_address_changed?).to be(false)
 
-      ["address=", "city=", "state=", "zipcode="].each do |attribute|
+      ["street=", "city=", "state=", "zipcode="].each do |attribute|
         organization = create(:organization)
         organization.send(attribute, "SOMETHING ELSE")
         expect(organization.full_street_address_changed?).to be(true)
@@ -54,7 +54,7 @@ describe Organization, type: :model do
     let(:user_one) do
       create(
         :user,
-        address: '350 Fifth Avenue',
+        street: '350 Fifth Avenue',
         city: 'New York',
         state: 'NY',
         zipcode: '10118'
@@ -65,7 +65,7 @@ describe Organization, type: :model do
       create(
         :organization,
         name: 'Metropolitan Museum of Art',
-        address: '1000 5th Ave',
+        street: '1000 5th Ave',
         city: 'New York',
         state: 'NY',
         zipcode: '10028'
@@ -76,7 +76,7 @@ describe Organization, type: :model do
       create(
         :organization,
         name: 'Faneuil Hall Marketplace',
-        address: '4 South Market Building',
+        street: '4 South Market Building',
         city: 'Boston',
         state: 'MA',
         zipcode: '02109'

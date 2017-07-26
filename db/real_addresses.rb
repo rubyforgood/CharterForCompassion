@@ -20,9 +20,9 @@ class RealAddresses
   end
 
   def self.sample_hash
-    address, city, state, zipcode = sample_array
+    street, city, state, zipcode = sample_array
     {
-        address: address,
+        street: street,
         city:    city,
         state:   state,
         zipcode: zipcode,

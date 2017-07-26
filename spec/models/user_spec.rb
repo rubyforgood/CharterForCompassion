@@ -5,7 +5,7 @@
 #  id                     :integer          not null, primary key
 #  first_name             :string           not null
 #  last_name              :string           not null
-#  address                :string           not null
+#  street                 :string           not null
 #  city                   :string           not null
 #  state                  :string           not null
 #  zipcode                :string           not null
@@ -55,14 +55,14 @@ describe User, type: :model do
     let(:user) do
       create(
         :user,
-        address: '123 Main St.',
+        street: '123 Main St.',
         city: 'Spring',
         state: 'VA',
         zipcode: '20009'
       )
     end
 
-    it 'returns a string with the address, city, state, and zip code combined' do
+    it 'returns a string with the street, city, state, and zip code combined' do
       expect(user.full_street_address).to eq('123 Main St. Spring, VA 20009')
     end
   end
@@ -70,10 +70,10 @@ describe User, type: :model do
   describe '#full_street_address_changed?' do
     let(:user) { create(:user) }
 
-    it 'returns true if any of address, city, state, zipcode changes' do
+    it 'returns true if any of street, city, state, zipcode changes' do
       expect(user.full_street_address_changed?).to be(false)
 
-      ["address=", "city=", "state=", "zipcode="].each do |attribute|
+      ["street=", "city=", "state=", "zipcode="].each do |attribute|
         user = create(:user)
         user.send(attribute, "SOMETHING ELSE")
         expect(user.full_street_address_changed?).to be(true)
@@ -93,7 +93,7 @@ describe User, type: :model do
     let(:user_one) do
       create(
         :user,
-        address: '4 South Market Building',
+        street: '4 South Market Building',
         city: 'Boston',
         state: 'MA',
         zipcode: '02109'
@@ -103,7 +103,7 @@ describe User, type: :model do
     let(:user_two) do
       create(
         :user,
-        address: '350 Fifth Avenue',
+        street: '350 Fifth Avenue',
         city: 'New York',
         state: 'NY',
         zipcode: '10118'

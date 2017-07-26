@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  name        :string           not null
 #  description :text
-#  address     :string           not null
+#  street      :string           not null
 #  city        :string           not null
 #  state       :string           not null
 #  zipcode     :string           not null
@@ -23,7 +23,7 @@ class Organization < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :address
+    validates :street
     validates :city
     validates :state
     validates :zipcode
@@ -36,10 +36,10 @@ class Organization < ApplicationRecord
     })
 
   def full_street_address
-    return "#{address} #{city}, #{state} #{zipcode}"
+    return "#{street} #{city}, #{state} #{zipcode}"
   end
 
   def full_street_address_changed?
-    return address_changed? || city_changed? || state_changed? || zipcode_changed?
+    return street_changed? || city_changed? || state_changed? || zipcode_changed?
   end
 end
