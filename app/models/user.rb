@@ -5,7 +5,7 @@
 #  id                     :integer          not null, primary key
 #  first_name             :string           not null
 #  last_name              :string           not null
-#  address                :string           not null
+#  street                 :string           not null
 #  city                   :string           not null
 #  state                  :string           not null
 #  zipcode                :string           not null
@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :address, presence: true
+  validates :street, presence: true
   validates :city, presence: true
   validates :state, presence: true
   validates :zipcode, presence: true
@@ -66,10 +66,10 @@ class User < ApplicationRecord
   })
 
   def full_street_address
-    return "#{address} #{city}, #{state} #{zipcode}"
+    return "#{street} #{city}, #{state} #{zipcode}"
   end
 
   def full_street_address_changed?
-    return address_changed? || city_changed? || state_changed? || zipcode_changed?
+    return street_changed? || city_changed? || state_changed? || zipcode_changed?
   end
 end

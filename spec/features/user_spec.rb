@@ -17,7 +17,7 @@ describe "the signin process" do
         fill_in 'First name', with: 'Billy'
         fill_in 'Last name', with: 'Bob'
         fill_in 'Email', with: 'user@example.com'
-        fill_in 'Address', with: '123 Main Street'
+        fill_in 'Street', with: '123 Main Street'
         fill_in 'City', with: 'Gotham'
         fill_in 'State', with: 'NY'
         fill_in 'Zipcode', with: '12345'
@@ -57,7 +57,7 @@ describe 'the search process' do
       create(
         :user,
         first_name: 'One and only Bostonian',
-        address: '4 South Market Building',
+        street: '4 South Market Building',
         city: 'Boston',
         state: 'MA',
         zipcode: '02109'
@@ -68,7 +68,7 @@ describe 'the search process' do
       create(
         :user,
         first_name: 'New Yorker 1',
-        address: '350 Fifth Avenue',
+        street: '350 Fifth Avenue',
         city: 'New York',
         state: 'NY',
         zipcode: '10118'
@@ -79,7 +79,7 @@ describe 'the search process' do
       create(
         :user,
         first_name: 'New Yorker 2',
-        address: '405 Lexington Ave',
+        street: '405 Lexington Ave',
         city: 'New York',
         state: 'NY',
         zipcode: '10174'
@@ -130,7 +130,7 @@ describe 'the search process' do
         fill_in 'First name', with: 'Sally'
         fill_in 'Last name', with: 'Sue'
         fill_in 'Email', with: 'different@example.com'
-        fill_in 'Address', with: '123 Main Street'
+        fill_in 'Street', with: '123 Main Street'
         fill_in 'City', with: 'Gotham'
         fill_in 'State', with: 'NY'
         fill_in 'Zipcode', with: '12345'
