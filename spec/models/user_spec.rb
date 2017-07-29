@@ -162,7 +162,7 @@ describe User, type: :model do
           "4 South Market Building Boston, MA 02109" => {
               'latitude'     => 42.3597994,
               'longitude'    => -71.0544602,
-              'address'      => '4 South Market Building',
+              'street'      => '4 South Market Building',
               'state'        => 'Boston',
               'state_code'   => 'MA',
               'country'      => 'United States',
@@ -171,7 +171,7 @@ describe User, type: :model do
           "350 Fifth Avenue New York, NY 10118" => {
               'latitude'     => 40.7143528,
               'longitude'    => -74.0059731,
-              'address'      => '350 Fifth Avenue',
+              'street'      => '350 Fifth Avenue',
               'state'        => 'New York',
               'state_code'   => 'NY',
               'country'      => 'United States',

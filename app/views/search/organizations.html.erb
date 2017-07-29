@@ -1,27 +1,33 @@
 <h2>Search Organizations</h2>
-<div class="search-form">
-  <%= form_tag search_organizations_path, method: :get do %>
-    <%= label_tag :distance %>
-    <%= select_tag 'distance', options_for_select(['5', '10', '25', '50', '100', '500', 'All'], params[:distance]), { class: "distance-search", include_blank: true } %>
+<div class='search-form-and-map'>
+  <div class="search-form">
+    <%= form_tag search_organizations_path, method: :get do %>
+      <%= label_tag :distance %>
+      <%= select_tag 'distance', options_for_select(['5', '10', '25', '50', '100', '500', 'All'], params[:distance]), { class: "distance-search", include_blank: true } %>
 
-    <%= submit_tag 'Search organizations' %>
-  <% end %>
-</div>
+      <%= submit_tag 'Search organizations' %>
+    <% end %>
+  </div>
 
-<div class="search-results-list">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Website</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @organizations.each do |org| %>
+  <div class="search-map" style='display:block'>
+    <%= render partial: 'map' %>
+  </div>
+
+  <div class="search-results-list">
+    <table>
+      <thead>
         <tr>
-          <td><%= org.name %></td>
-          <td><%= link_to org.website_url, "#{org.website_url}" %></td>
-      <% end %>
-    </tbody>
-  </table>
+          <th>Name</th>
+          <th>Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @organizations.each do |org| %>
+          <tr>
+            <td><%= org.name %></td>
+            <td><%= link_to org.website_url, "#{org.website_url}" %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
