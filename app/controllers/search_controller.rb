@@ -20,7 +20,7 @@ class SearchController < ApplicationController
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
-        marker.infowindow "#{user.address}, #{user.city}, #{user.state}"
+        marker.infowindow "#{user.street}, #{user.city}, #{user.state}"
     end   
   end
 end
