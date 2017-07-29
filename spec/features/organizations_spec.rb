@@ -15,7 +15,7 @@ describe 'When I am within the organizations view' do
         click_link 'Add Organization'
         fill_in 'Name', with: 'Sample Org'
         fill_in 'Description', with: 'We help with cool stuff all the time!'
-        fill_in 'Address', with: '123 Main Street'
+        fill_in 'Street', with: '123 Main Street'
         fill_in 'City', with: 'Gotham'
         fill_in 'State', with: 'NY'
         fill_in 'Zipcode', with: '12345'
@@ -62,6 +62,17 @@ describe 'When I am within the organizations view' do
           expect(page).to have_content('Could not find a user')
         end
       end
+
+      it 'displays a warning if the user is already part of the organization' do
+        within '.add-member' do
+          fill_in 'email', with: "#{@olivia.email}"
+          click_button 'Add Member'
+        end
+
+        within '.notifications' do
+          expect(page).to have_content('already part of the organization')
+        end
+      end
     end
   end
 end
@@ -83,7 +94,7 @@ describe 'the search process' do
       create(
         :user,
         first_name: 'One and only Philadelphian',
-        address: '130 S 9th St',
+        street: '130 S 9th St',
         city: 'Philadelphia',
         state: 'PA',
         zipcode: '19107'
@@ -94,7 +105,7 @@ describe 'the search process' do
       create(
         :organization,
         name: 'Metropolitan Museum of Art',
-        address: '1000 5th Ave',
+        street: '1000 5th Ave',
         city: 'New York',
         state: 'NY',
         zipcode: '10028'
@@ -105,7 +116,7 @@ describe 'the search process' do
       create(
         :organization,
         name: 'Independence Hall',
-        address: '520 Chestnut St',
+        street: '520 Chestnut St',
         city: 'Philadelphia',
         state: 'PA',
         zipcode: '19106'

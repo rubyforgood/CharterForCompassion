@@ -40,7 +40,10 @@ class OrganizationsController < ApplicationController
 
   def add_member
     user = User.find_by(email: params[:email])
-    if (user)
+    if (user && @organization.users.include?(user))
+      flash[:alert] = "#{user.name} is already part of the organization"
+    elsif (user)
+      flash[:success] = "#{user.name} was added successfully"
       @organization.users << user
     else
       flash[:alert] = "Could not find a user with email: #{params[:email]}"
@@ -54,11 +57,11 @@ class OrganizationsController < ApplicationController
     params["organization"]["interest_ids"].delete_if {|x| x.empty?}
     params["organization"]["skill_ids"].delete_if {|x| x.empty?}
 
-    params.require(:organization).permit({skill_ids: [], interest_ids: [] }, :name, :address, :description, :city,
+    params.require(:organization).permit({skill_ids: [], interest_ids: [] }, :name, :street, :description, :city,
       :state, :zipcode)
   end
 
   def set_organization
-    @organization = Organization.find(params[:id])
+    @organization ||= Organization.find(params[:id])
   end
 end
