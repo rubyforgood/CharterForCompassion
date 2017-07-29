@@ -27,8 +27,6 @@
 
 require 'spec_helper'
 
-
-
 describe User, type: :model do
   context 'when all user attributes exist' do
     let(:user) { create(:user) }

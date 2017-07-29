@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe 'When I am within the organizations view' do
   before :each do
     @olivia = create(:user, first_name: "Olivia")
