@@ -14,10 +14,10 @@ For any changes, please create a feature branch and open a PR for it when you fe
 
 ## Getting Started
 
-This is a Ruby on Rails app that uses Postgres since we'll likely depend on Postgres features around geolocation. 
-This project uses `ruby 2.3.0` and `rails 5.1.1`
+This is a Ruby on Rails app that uses Postgres since we'll likely depend on Postgres features around geolocation.
+Ruby and Rails versions are specified in the project's .ruby-version and Gemfile.
 
-Click here to install postress [Postgres installation guide](https://wiki.postgresql.org/wiki/Detailed_installation_guides)
+Postgres installation instructions are [here](https://wiki.postgresql.org/wiki/Detailed_installation_guides)
 
 If you have Ruby and Postgres installed, clone this repository.
 Then run:
