@@ -2,7 +2,7 @@
 
 ## About
 
-The [Charter for Compassion](www.charterforcompassion.org) is a document that urges the peoples and religions of the world to embrace the core value of compassion. The supporting organization, Charter for Compassion International, connects organizers, leaders, and individuals from around the world, providing educational resources, organizing tools, and avenues for communication.
+The [Charter for Compassion](https://www.charterforcompassion.org) is a document that urges the peoples and religions of the world to embrace the core value of compassion. The supporting organization, Charter for Compassion International, connects organizers, leaders, and individuals from around the world, providing educational resources, organizing tools, and avenues for communication.
 
 ### About this App
 
