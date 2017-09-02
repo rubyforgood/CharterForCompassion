@@ -152,7 +152,36 @@ describe User, type: :model do
       end
     end
 
-    describe '.search_by_distance' do
+    describe '.search_by_distance' do 
+
+      before :each do
+
+        addresses = {
+          "4 South Market Building Boston, MA 02109" => {
+              'latitude'     => 42.3597994,
+              'longitude'    => -71.0544602,
+              'street'      => '4 South Market Building',
+              'state'        => 'Boston',
+              'state_code'   => 'MA',
+              'country'      => 'United States',
+              'country_code' => 'US'
+          },
+          "350 Fifth Avenue New York, NY 10118" => {
+              'latitude'     => 40.7143528,
+              'longitude'    => -74.0059731,
+              'street'      => '350 Fifth Avenue',
+              'state'        => 'New York',
+              'state_code'   => 'NY',
+              'country'      => 'United States',
+              'country_code' => 'US'
+          }
+        }
+  
+        Geocoder.configure(:lookup => :test)
+        addresses.each { |lookup, results| Geocoder::Lookup::Test.add_stub(lookup, [results]) }
+
+      end
+
       # NOTE: Distance between user_one and user_two is 188 miles
       it 'returns users within a certain distance' do
         expect(described_class.search_by_distance(user_one, rand(200..500)))

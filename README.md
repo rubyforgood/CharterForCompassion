@@ -1,8 +1,10 @@
-# Charter For Compassion
+# Charter For Compassion 
+[![Travis](https://travis-ci.org/rubyforgood/CharterForCompassion.svg?branch=master)](https://travis-ci.org/rubyforgood/CharterForCompassion)
+ 
 
 ## About
 
-The [Charter for Compassion](www.charterforcompassion.org) is a document that urges the peoples and religions of the world to embrace the core value of compassion. The supporting organization, Charter for Compassion International, connects organizers, leaders, and individuals from around the world, providing educational resources, organizing tools, and avenues for communication.
+The [Charter for Compassion](https://www.charterforcompassion.org) is a document that urges the peoples and religions of the world to embrace the core value of compassion. The supporting organization, Charter for Compassion International, connects organizers, leaders, and individuals from around the world, providing educational resources, organizing tools, and avenues for communication.
 
 ### About this App
 
@@ -14,7 +16,10 @@ For any changes, please create a feature branch and open a PR for it when you fe
 
 ## Getting Started
 
-This is a Ruby on Rails app that uses Postgres since we'll likely depend on Postgres features around geolocation. Ruby and Rails versions are specified in the project's `.ruby-version` and `Gemfile`.
+This is a Ruby on Rails app that uses Postgres since we'll likely depend on Postgres features around geolocation.
+Ruby and Rails versions are specified in the project's .ruby-version and Gemfile.
+
+Postgres installation instructions are [here](https://wiki.postgresql.org/wiki/Detailed_installation_guides)
 
 If you have Ruby and Postgres installed, clone this repository.
 Then run:
@@ -23,3 +28,11 @@ bundle install
 bundle exec rake db:create
 bundle exec rake db:migrate
 ```
+
+This project also uses yarn. If you're on a mac:
+
+``
+brew update
+brew install yarn
+yarn
+``
