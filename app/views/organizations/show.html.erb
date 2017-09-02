@@ -5,7 +5,8 @@
   <p><%= @organization.skills.map(&:skill).join(", ") %></p>
   <strong>Interests:</strong>
   <p><%= @organization.interests.map(&:interest).join(", ") %></p>
-  <p><%= link_to "Website", @organization.website_url if @organization.website_url %></p>
+  <strong>Website:</strong>
+  <p><%= link_to "#{@organization.name}", @organization.website_url if @organization.website_url %></p>
 
   <strong>Address</strong>
   <p>

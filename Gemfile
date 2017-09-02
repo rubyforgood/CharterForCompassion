@@ -38,6 +38,9 @@ gem 'devise', '~> 4.3'
 # Geocoding addresses to lat/long
 gem 'geocoder', '~> 1.4'
 
+# URL validation
+gem "validate_url"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

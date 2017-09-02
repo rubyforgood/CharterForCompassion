@@ -27,6 +27,7 @@ class Organization < ApplicationRecord
     validates :city
     validates :state
     validates :zipcode
+    validates :website_url, :url => true
   end
 
   scope :search_by_distance, (lambda { |user, distance| 
