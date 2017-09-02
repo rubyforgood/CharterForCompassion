@@ -1,4 +1,6 @@
-# Charter For Compassion
+# Charter For Compassion 
+[![Travis](https://travis-ci.org/rubyforgood/CharterForCompassion.svg?branch=master)](https://travis-ci.org/rubyforgood/CharterForCompassion)
+ 
 
 ## About
 
