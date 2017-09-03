@@ -32,5 +32,6 @@ FactoryGirl.define do
     city 'New York'
     state 'NY'
     zipcode '10036'
+    website_url 'http://www.MyOrg.com'
   end
 end

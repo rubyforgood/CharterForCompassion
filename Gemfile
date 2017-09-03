@@ -38,6 +38,9 @@ gem 'devise', '~> 4.3'
 # Geocoding addresses to lat/long
 gem 'geocoder', '~> 1.4'
 
+# URL validation
+gem "validate_url"
+
 # Google Maps
 gem 'gmaps4rails', '~> 2.1.2'
 

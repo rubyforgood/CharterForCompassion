@@ -30,6 +30,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :website_url, 'Website URL' %>
+    <%= f.text_field :website_url %>
+  </div>
+
+  <div class="field">
     <%= f.label :organization_interests %><br />
     <%= f.collection_select "interest_ids", Interest.all, :id, :interest, {}, html_options = {multiple: true, class: "interests" } %>
   </div>

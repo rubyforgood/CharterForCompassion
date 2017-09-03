@@ -18,6 +18,7 @@ describe 'When I am within the organizations view' do
         fill_in 'City', with: 'Gotham'
         fill_in 'State', with: 'NY'
         fill_in 'Zipcode', with: '12345'
+        fill_in 'Website URL', with: 'http://www.MyOrg.com'
         click_on 'Create Organization'
 
         expect(page).to have_content('Sample Org')
