@@ -27,7 +27,7 @@ set :ssh_options, keys: ["config/deploy_id_rsa"] if File.exist?("config/deploy_i
 set :scm,           :git
 set :branch,        :master
 set :format,        :pretty
-set :log_level,     :debug
+set :log_level,     :error
 set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):

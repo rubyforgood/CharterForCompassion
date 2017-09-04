@@ -4,12 +4,12 @@ script:
 - bundle exec rake db:create db:migrate
 - bundle exec rake spec
 after_success:
-- openssl aes-256-cbc -K $encrypted_d7f80deb40b0_key -iv $encrypted_d7f80deb40b0_iv -in id_rsa.enc -out config/deploy_id_rsa -d  
-- "chmod 600 config/deploy_id_rsa"
-- "eval `ssh-agent -s`"
-- "ssh-add config/deploy_id_rsa"
+- openssl aes-256-cbc -K $encrypted_d7f80deb40b0_key -iv $encrypted_d7f80deb40b0_iv -in id_rsa.enc -out config/deploy_id_rsa -d
+- chmod 600 config/deploy_id_rsa
+- eval `ssh-agent -s`
+- ssh-add config/deploy_id_rsa
 - "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec cap production deploy"
 - ssh-agent -k
 env:
   global:
-  - secure: x16+B4ioERzzKu2jYeRXwWDl2wys7ssNegalS3MJvIiit9WZvMAyBbIY2O0vSr4Ik86X7PQLAokTNFN4oOM3puZcs9Ix5lf2liQeN27dCDBi53tAbOF0rvfKB8A4nAv1Unrf/sw/AzW46c88u0/sKTqu+HWoyjfEUX79GJf7BB9F1/7z+RK06XhuPPjSRxgzZFniUfvoum/4wHvQt8zUusDDba8B3lIwPyDGL4euMJaNB56SHsszCmO4mu7+TExiM+oWbnyi+wFnqp0oBa6hyxwNIwAAeznig/Dshq2uPCuMXLaexAwVzaKhKlsPDsVw+xH0DUQ8/8RXzvIaJuhovQX72Jnj+/WrA9dLLBbm53JGUrD8BVjII5mZmzUshxWCpw/3XMocaDVwj8VMeAMcZpGdolXvC5nh3H/ABti0BibP3hDSXU5gNuxiS+HJsIC9jkwq7TGs8wxA8X4SULy1oM7v5qKT1z5dG7y9TwTiAJ1x0KHLdRgzXcm9iHqSwnNgfZ59pW/fvnhUMqo4E1wplTo5Oysr7qjw63LsklA8aKixDgWShHp0CsO3v2ragyZvyrL+sSast++c6+iQHVnp6Bt4IZs8zcLmEeWGGzWe5RZwdg0o9Wp+Ul2uIsPhSGzIVK5ahnjPqdHYLIDOL4A8emgFXAtNxZhaB8tIKTGHguo=
+  - secure: NYmv5Fq28AE/vX/p4EJ6B13XRhdBcoUO7EySsZrucOxnIYTBLod4izZZtKJy/qkle2jE/ROGloiJwsi3xdW+hifP4Hb4aPPHRaN2kwNLmbdjKIgUDI3SsdBCzLmhuplTUOs2J/qxWMBzGLtelQT4ED7akaVLovc1trngHaDM0Jl84FzqW5yboJVGK0mxAczMo2vVSZMH6HmGl/aXUS0BHuL3K5c4S28U5jMYB1Wpy4B7vSQY8ok57ixBFqWXCOYaeaLocDN7HVGIK+Pf2AoNvZpXHo0FFmP+t+NcUTDZUpUrOIm1p7YX3M8kazEmWcIsOKy6w1eAFoW9VvQV3K9xxMx3AQVwEk0B4zJbdT2ZqT3dIafmGB6f8U0aC+j2t5NVsGPRQYIYHXG/WCRRqKs9kuh8nOEWsFC/4LictpufKXrS6R15uwhNpdn5jyJ4BXyX3A8SjuINm/IWx5SNb88LAHNbqomf1n8vYhdF/ika4zGVo0uNvAR0H9QulScXmuzl0FCHigQqDinT5lYDFi8ExXE1H4MAKR/axM2H5Ssc0owhBAcSfThGLkseQ3+RtO/ZB0pCuTLT4j4CoLyvxbIg5xZo06qPo4atde55WvAx4ZuhcikZOJXWWb/G7i3LCiS5GvzlFoNq0DGCPULxZ0qQEp8cqa4xAbG5l6j6FLXI9ks=
