@@ -29,6 +29,7 @@ gem 'webpacker'
 # Allow highlighting active links
 gem 'active_link_to', '~> 1.0'
 
+gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
