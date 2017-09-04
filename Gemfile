@@ -24,7 +24,6 @@ gem 'refills', group: :development
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
 
 # Allow highlighting active links
 gem 'active_link_to', '~> 1.0'
