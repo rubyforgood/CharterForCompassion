@@ -54,6 +54,12 @@ group :development, :test do
   gem 'pry'
   gem 'factory_girl_rails'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false  
+  gem 'capistrano-rails-console', require: false
 end
 
 group :development do
