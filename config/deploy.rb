@@ -72,8 +72,15 @@ namespace :deploy do
     end
   end
 
+  desc 'Puma is sometimes not restarting. This ensures it restarts... Nothing happens if restart works'
+    task :ensure_start do
+      on roles(:app), in: :sequence, wait: 10 do
+      invoke 'puma:stop'
+    end
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  after  :finishing,    :restart
+  after  :finishing,    :ensure_start
 end
