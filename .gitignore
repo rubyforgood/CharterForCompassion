@@ -19,7 +19,6 @@
 /public/packs
 /public/assets
 /node_modules
-/yarn-error.log
 
 # Ignore RubyMine control directory
 .idea/

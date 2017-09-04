@@ -29,10 +29,3 @@ bundle exec rake db:create
 bundle exec rake db:migrate
 ```
 
-This project also uses yarn. If you're on a mac:
-
-``
-brew update
-brew install yarn
-yarn
-``
