@@ -24,7 +24,6 @@ set :ssh_options, keys: ["config/deploy_id_rsa"] if File.exist?("config/deploy_i
 
 
 ## Defaults:
-set :scm,           :git
 set :branch,        :master
 set :format,        :pretty
 set :log_level,     :error
