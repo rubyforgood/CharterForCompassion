@@ -24,7 +24,7 @@ describe "the signin process" do
         fill_in 'Password', with: 'password'
         fill_in 'Password confirmation', with: 'password'
         click_button 'Sign up'
-        expect(page).to have_content 'Our Vision'
+        expect(page).to have_content 'Work with the Charter'
     end
   end
 
@@ -35,7 +35,7 @@ describe "the signin process" do
 
     it "signs me in" do
       sign_in(@user)
-      expect(page).to have_content 'Our Vision'
+      expect(page).to have_content 'Work with the Charter'
     end
   end
 end
@@ -139,7 +139,7 @@ describe 'the search process' do
         fill_in 'Current password', with: 'password'
         click_button 'Update'
 
-        expect(page).to have_content('Our Vision We')
+        expect(page).to have_content('Work with the Charter')
 
         within '.notifications' do
           expect(page).to have_content('Your account has been updated successfully.')
@@ -154,7 +154,7 @@ describe 'the search process' do
         fill_in 'Current password', with: 'password'
         click_button 'Update'
 
-        expect(page).to have_content('Our Vision We')
+        expect(page).to have_content('Work with the Charter')
 
         within '.notifications' do
           expect(page).to have_content('Your account has been updated successfully.')
