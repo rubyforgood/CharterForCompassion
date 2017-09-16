@@ -43,17 +43,23 @@ input[type="submit"] {
 }
 
 .homepage {
-  .intro {
+  .image {
     float: left;
-    width: 50%;
-    min-width: 500px;
-    padding: 3rem;
+    width: 33%;
+    min-width: 400px;
+    padding: 10em, 10em;
+    .image-on-hill {
+      text-align: center;
+    }
   }
   .info {
     float: left;
-    width: 50%;
+    width: 66%;
     min-width: 500px;
-    padding: 3rem;
+    padding: 3em, 10em;
+    .text {
+      margin: 1em;
+    }
   }
   .home-footer {
     float: left;
