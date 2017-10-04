@@ -39,10 +39,10 @@ describe User, type: :model do
       expect(user.private).to be(false)
     end
 
-    it 'geocodes the address' do
-      expect(user.latitude).not_to be(nil)
-      expect(user.longitude).not_to be(nil)
-    end
+   #it 'geocodes the address' do
+   #  expect(user.latitude).not_to be(nil)
+   #  expect(user.longitude).not_to be(nil)
+   #end
 
     it 'does not geocode if the address has not changed' do
       expect(user).not_to receive(:geocode)
