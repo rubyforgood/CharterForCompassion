@@ -10,6 +10,7 @@
 #  state       :string           not null
 #  zipcode     :string           not null
 #  website_url :string
+#  charter_page_url :string
 #
 
 class Organization < ApplicationRecord
@@ -28,9 +29,10 @@ class Organization < ApplicationRecord
     validates :state
     validates :zipcode
     validates :website_url, :url => true
+    validates :charter_page_url, :url => true
   end
 
-  scope :search_by_distance, (lambda { |user, distance| 
+  scope :search_by_distance, (lambda { |user, distance|
       if user.present? && distance.present?
         self.near([user.latitude, user.longitude], distance)
       end

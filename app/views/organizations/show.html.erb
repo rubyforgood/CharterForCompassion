@@ -7,6 +7,8 @@
   <p><%= @organization.interests.map(&:interest).join(", ") %></p>
   <strong>Website:</strong>
   <p><%= link_to "#{@organization.name}", @organization.website_url if @organization.website_url %></p>
+  <strong>Charter Page Website:</strong>
+  <p><%= link_to "Charter Page", @organization.charter_page_url if @organization.charter_page_url %></p>
 
   <strong>Address</strong>
   <p>
