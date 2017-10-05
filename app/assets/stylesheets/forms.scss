@@ -36,6 +36,9 @@ input[type="submit"] {
 
 .add-member {
   margin: 15px 0px;
+  a {
+    text-transform: uppercase;
+  }
 }
 
 .autocomplete {

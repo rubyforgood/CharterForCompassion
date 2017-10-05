@@ -33,6 +33,7 @@
         <%= f.label :email %>
         <%= f.text_field :email %>
         <%= f.submit "Add Member" %>
+        <%= link_to "Edit Organization", edit_organization_path(@organization), html_options = {type: "submit"} %>
       <% end %>
     </div>
   </div>
