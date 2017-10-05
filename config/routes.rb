@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: "users/registrations"
   }
-  resources :organizations, only: [:index, :show, :new, :edit, :create] do
+  resources :organizations, only: [:index, :show, :new, :edit, :update, :create] do
     put 'add_member', on: :member
   end
 
