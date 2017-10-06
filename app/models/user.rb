@@ -5,7 +5,9 @@
 #  id                     :integer          not null, primary key
 #  first_name             :string           not null
 #  last_name              :string           not null
-#  street                 :string           not null
+#  street1                :string           not null
+#  street2                :string           default("")
+#  street3                :string           default("")
 #  city                   :string           not null
 #  state                  :string           not null
 #  zipcode                :string           not null
@@ -33,7 +35,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :street, presence: true
+  validates :street1, presence: true
   validates :city, presence: true
   validates :state, presence: true
   validates :zipcode, presence: true
@@ -49,7 +51,7 @@ class User < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
-  
+
   # TODO: Add support for multiple interests
   scope :search_by_interest, (lambda { |interest|
       joins(:interests).merge(Interest.where("interest ILIKE ?", interest)) if interest.present? })
@@ -58,7 +60,7 @@ class User < ApplicationRecord
   scope :search_by_skill, (lambda { |skill|
       joins(:skills).merge(Skill.where("skill ILIKE ?", skill)) if skill.present? })
 
-  scope :search_by_distance, (lambda { |user, distance| 
+  scope :search_by_distance, (lambda { |user, distance|
       if user.present? && distance.present?
         self.near([user.latitude, user.longitude], distance)
             .where.not(id: user.id)
@@ -66,10 +68,14 @@ class User < ApplicationRecord
   })
 
   def full_street_address
-    return "#{street} #{city}, #{state} #{zipcode}"
+    "#{full_street} #{city}, #{state} #{zipcode}"
+  end
+
+  def full_street
+    [street1, street2, street3].join(" ").strip
   end
 
   def full_street_address_changed?
-    return street_changed? || city_changed? || state_changed? || zipcode_changed?
+    street1_changed? || street2_changed? || street3_changed? || city_changed? || state_changed? || zipcode_changed?
   end
 end

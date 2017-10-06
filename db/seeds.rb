@@ -14,7 +14,7 @@ NUM_USERS = 5
 puts "Populating users..."
 User.destroy_all
 USERS = Array.new(NUM_USERS).map do |user_num|
-  User.create!(RealAddresses.sample_hash.merge(
+  User.create!(RealAddresses.users_sample_hash.merge(
       first_name: FFaker::Name.first_name,
       last_name:  FFaker::Name.last_name,
       email:      FFaker::Internet.email,
@@ -22,7 +22,7 @@ USERS = Array.new(NUM_USERS).map do |user_num|
   ))
 end
 
-User.create!(RealAddresses.sample_hash.merge(
+User.create!(RealAddresses.users_sample_hash.merge(
     first_name: FFaker::Name.first_name,
     last_name:  FFaker::Name.last_name,
     email:      "bob@example.com",
@@ -114,6 +114,7 @@ ORGANIZATIONS = [
       name:        organization_name,
       description: FFaker::Lorem.paragraphs(rand(1..3)).join("\n\n"),
       website_url: "http://www.#{organization_name.gsub(' ', '_')}.org",
+      charter_page_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
   ))
 end
 
