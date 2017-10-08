@@ -1,42 +1,34 @@
 <%= simple_form_for @organization do |f| %>
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.input :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.input :description %>
   </div>
 
   <div class="field">
-    <%= f.label :street %>
-    <%= f.text_field :street %>
+    <%= f.input :street %>
   </div>
 
   <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= f.input :city %>
   </div>
 
   <div class="field">
-    <%= f.label :state %>
-    <%= f.text_field :state %>
+    <%= f.input :state %>
   </div>
 
   <div class="field">
-    <%= f.label :zipcode %>
-    <%= f.text_field :zipcode %>
+    <%= f.input :zipcode %>
   </div>
 
   <div class="field">
-    <%= f.label :website_url, 'Website URL' %>
-    <%= f.text_field :website_url %>
+    <%= f.input :website_url, label: 'Website URL' %>
   </div>
 
   <div class="field">
-    <%= f.label :charter_page_url, 'Charter Page URL' %>
-    <%= f.text_field :charter_page_url %>
+    <%= f.input :charter_page_url, label: 'Charter Page URL' %>
   </div>
 
   <div class="field">
