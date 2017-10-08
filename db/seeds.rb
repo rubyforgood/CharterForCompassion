@@ -114,6 +114,7 @@ ORGANIZATIONS = [
       name:        organization_name,
       description: FFaker::Lorem.paragraphs(rand(1..3)).join("\n\n"),
       website_url: "http://www.#{organization_name.gsub(' ', '_')}.org",
+      charter_page_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
   ))
 end
 
