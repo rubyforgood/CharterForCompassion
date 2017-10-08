@@ -1,6 +1,86 @@
 require 'spec_helper'
 
 describe Organization, type: :model do
+
+  before :each do
+    addresses = {
+      "4 Times Square New York, NY 10036" => {
+          'latitude'     => 40.7143528,
+          'longitude'    => -74.0059731,
+          'street'      => '350 Fifth Avenue',
+          'state'        => 'New York',
+          'state_code'   => 'NY',
+          'country'      => 'United States',
+          'country_code' => 'US'
+      },
+      "123 Main St. Spring, VA 20009" => {
+          'latitude'     => 38.476288,
+          'longitude'    => -80.410396,
+          'street'      => '123 Main St.',
+          'state'        => 'Spring',
+          'state_code'   => 'VA',
+          'country'      => 'United States',
+          'country_code' => 'US'
+      },
+      "520 Chestnut St Philadelphia PA 19106" => {
+          'latitude'     => 38.476288,
+          'longitude'    => -80.410396,
+          'street'      => '520 Chestnut St',
+          'state'        => 'Philadelphia',
+          'state_code'   => 'PA',
+          'country'      => '19106',
+          'country_code' => 'US'
+      },
+      "350 Fifth Avenue New York, NY 10118" => {
+          'latitude'     => 40.7484,
+          'longitude'    => -73.9857,
+          'street'      => '350 Fifth Avenue',
+          'state'        => 'New York',
+          'state_code'   => 'NY',
+          'country'      => 'United States',
+          'country_code' => 'US'
+      },
+      "1000 5th Ave New York, NY 10028" => {
+          'latitude'     => 40.7484,
+          'longitude'    => -73.9857,
+          'street'      => '1000 5th Ave',
+          'state'        => 'New York',
+          'state_code'   => 'NY',
+          'country'      => 'United States',
+          'country_code' => 'US'
+      },
+      "4 South Market Building Boston, MA 02109" => {
+          'latitude'     => 42.3592642,
+          'longitude'    => -71.0564398,
+          'street'      => '4 South Market Building',
+          'state'        => 'Boston',
+          'state_code'   => 'MA',
+          'country'      => 'United States',
+          'country_code' => 'US'
+      }
+    }
+
+    # thanks, factory girl!
+    # ftest ailures went up to 7
+    # may need to increase number as tests increase?
+    15.times do |n|
+      addresses["#{n} Times Square New York, NY 10036"] = 
+        {
+          'latitude'     => 40.7143528,
+          'longitude'    => -74.0059731,
+          'street'      => '#{n} Times Square',
+          'state'        => 'New York',
+          'state_code'   => 'NY',
+          'country'      => 'United States',
+          'country_code' => 'US'   
+        }
+    end
+
+    Geocoder.configure(:lookup => :test)
+    addresses.each { |lookup, results| Geocoder::Lookup::Test.add_stub(lookup, [results]) }
+    addresses.each { |near, results| Geocoder::Lookup::Test.add_stub(near, [results]) }
+  end
+
   context 'when all organization attributes exist' do
     let(:organization) { create(:organization) }
 
@@ -8,10 +88,10 @@ describe Organization, type: :model do
       expect(organization.valid?).to be(true)
     end
 
-   #it 'geocodes the address' do
-   #  expect(organization.latitude).not_to be(nil)
-   #  expect(organization.longitude).not_to be(nil)
-   #end
+   it 'geocodes the address' do
+    expect(organization.latitude).not_to be(nil)
+    expect(organization.longitude).not_to be(nil)
+   end
 
     it 'does not geocode if the address has not changed' do
       expect(organization).not_to receive(:geocode)
@@ -127,17 +207,17 @@ describe Organization, type: :model do
     # end
 
     describe '.search_by_distance' do 
-     #it 'returns organization within a certain distance' do
-     #  expect(described_class.search_by_distance(user_one, rand(200..500)))
-     #    .to include(org_one, org_two)
-     #end
+     it 'returns organization within a certain distance' do
+      expect(described_class.search_by_distance(user_one, rand(200..500)))
+        .to include(org_one, org_two)
+     end
 
-     #it 'does NOT return organizations outside of the range' do
-     #  expect(described_class.search_by_distance(user_one, rand(20..50)))
-     #    .to include(org_one)
-     #  expect(described_class.search_by_distance(user_one, rand(20..50)))
-     #    .not_to include(org_two)
-     #end
+     it 'does NOT return organizations outside of the range' do
+      expect(described_class.search_by_distance(user_one, rand(20..50)))
+        .to include(org_one)
+      expect(described_class.search_by_distance(user_one, rand(20..50)))
+        .not_to include(org_two)
+     end
     end
   end
 end

@@ -29,6 +29,53 @@ require 'spec_helper'
 
 describe User, type: :model do
   context 'when all user attributes exist' do
+
+    before :each do
+      addresses = {
+        "4 South Market Building Boston, MA 02109" => {
+            'latitude'     => 42.3597994,
+            'longitude'    => -71.0544602,
+            'street'      => '4 South Market Building',
+            'state'        => 'Boston',
+            'state_code'   => 'MA',
+            'country'      => 'United States',
+            'country_code' => 'US'
+        },
+        "1600 Pennsylvania Ave. Washington, DC 20500" => {
+            'latitude'     => 38.8976763,
+            'longitude'    => -77.0365298,
+            'street'       => '1600 Pennsylvania Ave',
+            'city'        => 'Washington',
+            'state_code'   => 'DC',
+            'zipcode'      => '20500',
+            'country'      => 'United States',
+            'country_code' => 'US'
+        },
+        "350 Fifth Avenue New York, NY 10118" => {
+            'latitude'     => 40.7143528,
+            'longitude'    => -74.0059731,
+            'street'      => '350 Fifth Avenue',
+            'state'        => 'New York',
+            'state_code'   => 'NY',
+            'country'      => 'United States',
+            'country_code' => 'US'
+        },
+        "123 Main St. Spring, VA 20009" => {
+            'latitude'     => 38.476288,
+            'longitude'    => -80.410396,
+            'street'      => '123 Main St.',
+            'state'        => 'Spring',
+            'state_code'   => 'VA',
+            'country'      => 'United States',
+            'country_code' => 'US'
+        }
+      }
+
+      Geocoder.configure(:lookup => :test)
+      addresses.each { |lookup, results| Geocoder::Lookup::Test.add_stub(lookup, [results]) }
+      addresses.each { |near, results| Geocoder::Lookup::Test.add_stub(near, [results]) }
+    end
+
     let(:user) { create(:user) }
 
     it 'creates a valid user' do
@@ -39,10 +86,10 @@ describe User, type: :model do
       expect(user.private).to be(false)
     end
 
-   #it 'geocodes the address' do
-   #  expect(user.latitude).not_to be(nil)
-   #  expect(user.longitude).not_to be(nil)
-   #end
+   it 'geocodes the address' do
+    expect(user.latitude).not_to be(nil)
+    expect(user.longitude).not_to be(nil)
+   end
 
     it 'does not geocode if the address has not changed' do
       expect(user).not_to receive(:geocode)
@@ -153,34 +200,6 @@ describe User, type: :model do
     end
 
     describe '.search_by_distance' do 
-
-      before :each do
-
-        addresses = {
-          "4 South Market Building Boston, MA 02109" => {
-              'latitude'     => 42.3597994,
-              'longitude'    => -71.0544602,
-              'street'      => '4 South Market Building',
-              'state'        => 'Boston',
-              'state_code'   => 'MA',
-              'country'      => 'United States',
-              'country_code' => 'US'
-          },
-          "350 Fifth Avenue New York, NY 10118" => {
-              'latitude'     => 40.7143528,
-              'longitude'    => -74.0059731,
-              'street'      => '350 Fifth Avenue',
-              'state'        => 'New York',
-              'state_code'   => 'NY',
-              'country'      => 'United States',
-              'country_code' => 'US'
-          }
-        }
-  
-        Geocoder.configure(:lookup => :test)
-        addresses.each { |lookup, results| Geocoder::Lookup::Test.add_stub(lookup, [results]) }
-
-      end
 
       # NOTE: Distance between user_one and user_two is 188 miles
       it 'returns users within a certain distance' do
