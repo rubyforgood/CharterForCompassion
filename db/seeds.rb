@@ -20,7 +20,7 @@ USERS = Array.new(NUM_USERS).map do |user_num|
       email:      FFaker::Internet.email,
       password:   'password',
   ))
-  sleep 1
+  sleep 3
 end
 
 User.create!(RealAddresses.sample_hash.merge(
