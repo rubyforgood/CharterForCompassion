@@ -15,6 +15,7 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = current_user.organizations.build(organization_params)
+    @organization.owner_id = current_user.id
 
     if @organization.save
       flash[:success] = 'Organization saved successfully'
