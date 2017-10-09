@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20171008224623) do
     t.float "latitude"
     t.float "longitude"
     t.string "charter_page_url"
+    t.integer "owner_id"
   end
 
   create_table "organizations_skills", id: false, force: :cascade do |t|
