@@ -60,9 +60,6 @@ describe Organization, type: :model do
       }
     }
 
-    # thanks, factory girl!
-    # ftest ailures went up to 7
-    # may need to increase number as tests increase?
     15.times do |n|
       addresses["#{n} Times Square New York, NY 10036"] = 
         {
