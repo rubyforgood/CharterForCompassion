@@ -95,7 +95,7 @@ describe 'the search process' do
       create(
         :user,
         first_name: 'One and only Philadelphian',
-        street: '130 S 9th St',
+        street1: '130 S 9th St',
         city: 'Philadelphia',
         state: 'PA',
         zipcode: '19107'
