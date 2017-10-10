@@ -16,6 +16,7 @@
 class Organization < ApplicationRecord
   has_many :organization_users
   has_many :users, through: :organization_users
+  belongs_to :owner, class_name: 'User', foreign_key: :owner_id, optional: true
 
   geocoded_by :full_street_address
   after_validation :geocode, if: ->(org){ org.full_street_address.present? and org.full_street_address_changed? }
