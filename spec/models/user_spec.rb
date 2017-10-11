@@ -70,6 +70,14 @@ describe User, type: :model do
             'state_code'   => 'VA',
             'country'      => 'United States',
             'country_code' => 'US'
+        },
+        "Manor Farm Barns, Fox Road Framingham Pigot Norwich, Norfolk NR14 7PZ" => {
+            'latitude'     => 38.476288,
+            'longitude'    => -80.410396,
+            'street'       => 'Manor Farm Barns, Fox Road Framingham Pigot',
+            'state'        => 'Norwich',
+            'country'      => 'United Kingdom',
+            'country_code' => 'UK'
         }
       }
 
