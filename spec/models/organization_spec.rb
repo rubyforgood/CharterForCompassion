@@ -101,7 +101,7 @@ describe Organization, type: :model do
     let(:organization) do
       create(
         :organization,
-        street1: '123 Main St.',
+        street: '123 Main St.',
         city: 'Spring',
         state: 'VA',
         zipcode: '20009'
@@ -131,7 +131,7 @@ describe Organization, type: :model do
     let(:user_one) do
       create(
         :user,
-        street1: '350 Fifth Avenue',
+        street: '350 Fifth Avenue',
         city: 'New York',
         state: 'NY',
         zipcode: '10118'
@@ -142,7 +142,7 @@ describe Organization, type: :model do
       create(
         :organization,
         name: 'Metropolitan Museum of Art',
-        street1: '1000 5th Ave',
+        street: '1000 5th Ave',
         city: 'New York',
         state: 'NY',
         zipcode: '10028'
@@ -153,7 +153,7 @@ describe Organization, type: :model do
       create(
         :organization,
         name: 'Faneuil Hall Marketplace',
-        street1: '4 South Market Building',
+        street: '4 South Market Building',
         city: 'Boston',
         state: 'MA',
         zipcode: '02109'
