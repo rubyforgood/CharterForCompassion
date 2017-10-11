@@ -28,4 +28,14 @@ class RealAddresses
         zipcode: zipcode,
     }
   end
+
+  def self.users_sample_hash
+    street, city, state, zipcode = sample_array
+    {
+        street1: street,
+        city:    city,
+        state:   state,
+        zipcode: zipcode,
+    }
+  end
 end

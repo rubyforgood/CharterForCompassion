@@ -17,7 +17,7 @@ describe "the signin process" do
         fill_in 'First name', with: 'Billy'
         fill_in 'Last name', with: 'Bob'
         fill_in 'Email', with: 'user@example.com'
-        fill_in 'Street', with: '123 Main Street'
+        fill_in 'Street line 1', with: '123 Main Street'
         fill_in 'City', with: 'Gotham'
         fill_in 'State', with: 'NY'
         fill_in 'Zipcode', with: '12345'
@@ -25,6 +25,25 @@ describe "the signin process" do
         fill_in 'Password confirmation', with: 'password'
         click_button 'Sign up'
         expect(page).to have_content 'Work with the Charter'
+    end
+
+    context "when an international user" do
+      it "signs me up" do
+        visit 'users/sign_up'
+          fill_in 'First name', with: 'Billy'
+          fill_in 'Last name', with: 'Bob'
+          fill_in 'Email', with: 'user@example.com'
+          fill_in 'Street line 1', with: '123 Main Street'
+          fill_in 'Street line 2 (optional)', with: 'Manor Farm Barns, For Road'
+          fill_in 'Street line 3 (optional)', with: 'Framingham Pigot'
+          fill_in 'City', with: 'Gotham'
+          fill_in 'State', with: 'NY'
+          fill_in 'Zipcode', with: '12345'
+          fill_in 'Password', with: 'password'
+          fill_in 'Password confirmation', with: 'password'
+          click_button 'Sign up'
+          expect(page).to have_content 'Work with the Charter'
+        end
     end
   end
 
@@ -57,7 +76,7 @@ describe 'the search process' do
       create(
         :user,
         first_name: 'One and only Bostonian',
-        street: '4 South Market Building',
+        street1: '4 South Market Building',
         city: 'Boston',
         state: 'MA',
         zipcode: '02109'
@@ -68,7 +87,7 @@ describe 'the search process' do
       create(
         :user,
         first_name: 'New Yorker 1',
-        street: '350 Fifth Avenue',
+        street1: '350 Fifth Avenue',
         city: 'New York',
         state: 'NY',
         zipcode: '10118'
@@ -79,7 +98,7 @@ describe 'the search process' do
       create(
         :user,
         first_name: 'New Yorker 2',
-        street: '405 Lexington Ave',
+        street1: '405 Lexington Ave',
         city: 'New York',
         state: 'NY',
         zipcode: '10174'
@@ -110,7 +129,7 @@ describe 'the search process' do
 
     it 'returns a list of users by distance and skill' do
       select user_three.skills.first.skill, from: 'skill'
-      select '10', from: 'distance'
+      select '500', from: 'distance'
       click_button 'Search users'
       expect(page).to have_content user_three.first_name
       expect(page).not_to have_content user_one.first_name
@@ -130,7 +149,7 @@ describe 'the search process' do
         fill_in 'First name', with: 'Sally'
         fill_in 'Last name', with: 'Sue'
         fill_in 'Email', with: 'different@example.com'
-        fill_in 'Street', with: '123 Main Street'
+        fill_in 'Street line 1', with: '123 Main Street'
         fill_in 'City', with: 'Gotham'
         fill_in 'State', with: 'NY'
         fill_in 'Zipcode', with: '12345'

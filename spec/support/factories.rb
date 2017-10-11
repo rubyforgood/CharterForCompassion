@@ -7,7 +7,7 @@ FactoryGirl.define do
     password 'password'
     first_name 'indy'
     last_name 'vidual'
-    street '1600 Pennsylvania Ave.'
+    street1 '1600 Pennsylvania Ave.'
     city 'Washington'
     state 'DC'
     zipcode '20500'

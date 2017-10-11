@@ -5,7 +5,9 @@
 #  id                     :integer          not null, primary key
 #  first_name             :string           not null
 #  last_name              :string           not null
-#  street                 :string           not null
+#  street1                :string           not null
+#  street2                :string           default("")
+#  street3                :string           default("")
 #  city                   :string           not null
 #  state                  :string           not null
 #  zipcode                :string           not null
@@ -102,15 +104,26 @@ describe User, type: :model do
     let(:user) do
       create(
         :user,
-        street: '123 Main St.',
+        street1: '123 Main St.',
         city: 'Spring',
         state: 'VA',
         zipcode: '20009'
       )
     end
+    let(:international_user) do
+      create(
+        :user,
+        street1: 'Manor Farm Barns, Fox Road',
+        street2: 'Framingham Pigot',
+        city: 'Norwich',
+        state: 'Norfolk',
+        zipcode: 'NR14 7PZ'
+      )
+    end
 
     it 'returns a string with the street, city, state, and zip code combined' do
       expect(user.full_street_address).to eq('123 Main St. Spring, VA 20009')
+      expect(international_user.full_street_address).to eq('Manor Farm Barns, Fox Road Framingham Pigot Norwich, Norfolk NR14 7PZ')
     end
   end
 
@@ -120,7 +133,7 @@ describe User, type: :model do
     it 'returns true if any of street, city, state, zipcode changes' do
       expect(user.full_street_address_changed?).to be(false)
 
-      ["street=", "city=", "state=", "zipcode="].each do |attribute|
+      ["street1=", "street2=", "street3=", "city=", "state=", "zipcode="].each do |attribute|
         user = create(:user)
         user.send(attribute, "SOMETHING ELSE")
         expect(user.full_street_address_changed?).to be(true)
@@ -140,7 +153,7 @@ describe User, type: :model do
     let(:user_one) do
       create(
         :user,
-        street: '4 South Market Building',
+        street1: '4 South Market Building',
         city: 'Boston',
         state: 'MA',
         zipcode: '02109'
@@ -150,7 +163,7 @@ describe User, type: :model do
     let(:user_two) do
       create(
         :user,
-        street: '350 Fifth Avenue',
+        street1: '350 Fifth Avenue',
         city: 'New York',
         state: 'NY',
         zipcode: '10118'
@@ -199,8 +212,7 @@ describe User, type: :model do
       end
     end
 
-    describe '.search_by_distance' do 
-
+    describe '.search_by_distance' do
       # NOTE: Distance between user_one and user_two is 188 miles
       it 'returns users within a certain distance' do
         expect(described_class.search_by_distance(user_one, rand(200..500)))

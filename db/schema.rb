@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002222110) do
+ActiveRecord::Schema.define(version: 20171008224623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20171002222110) do
     t.float "latitude"
     t.float "longitude"
     t.string "charter_page_url"
+    t.integer "owner_id"
   end
 
   create_table "organizations_skills", id: false, force: :cascade do |t|
@@ -91,7 +92,7 @@ ActiveRecord::Schema.define(version: 20171002222110) do
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "street", null: false
+    t.string "street1", null: false
     t.string "city", null: false
     t.string "state", null: false
     t.string "zipcode", null: false
@@ -110,6 +111,8 @@ ActiveRecord::Schema.define(version: 20171002222110) do
     t.float "latitude"
     t.float "longitude"
     t.boolean "private", default: false
+    t.string "street2", default: ""
+    t.string "street3", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
