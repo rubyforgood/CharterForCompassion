@@ -131,7 +131,7 @@ describe Organization, type: :model do
     let(:user_one) do
       create(
         :user,
-        street: '350 Fifth Avenue',
+        street1: '350 Fifth Avenue',
         city: 'New York',
         state: 'NY',
         zipcode: '10118'
