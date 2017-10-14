@@ -1,0 +1,15 @@
+<div class="create_interest">
+  <%= link_to "Add Interest", new_interest_path %>
+</div>
+<table>
+  <tbody>
+    <% @interests.each do |interest| %>
+      <tr>
+        <td><%= interest.interest %></td>
+        <td><%= link_to 'Show', interest %></td>
+        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
+        <td><%= link_to 'Destroy',interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
