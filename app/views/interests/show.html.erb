@@ -1,0 +1,5 @@
+<div interest-form>
+    <h2><%=@interest.interest%></h2>
+    <%=link_to 'Add New Interest', new_interest_path, html_options = {type: "submit"} %>
+    <%=link_to 'Edit Interest', edit_interest_path(@interest), html_options = {type: "submit"} %>
+</div>

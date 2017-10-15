@@ -6,9 +6,16 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: "users/registrations"
   }
+  
   resources :organizations, only: [:index, :show, :new, :edit, :update, :create] do
     put 'add_member', on: :member
   end
+
+  resources :interests
+
+  get 'edit', to: 'interests#edit'
+  get 'new', to: 'interests#new'
+  delete 'destroy', to: 'interests#destroy'
 
   get '/search/users', to: 'search#users', as: 'search_users'
   get '/search/organizations', to: 'search#organizations', as: 'search_organizations'
