@@ -73,9 +73,14 @@ describe Organization, type: :model do
         }
     end
 
+    distances = [
+      [40.7484, -73.9857],  200
+    ]
+
     Geocoder.configure(:lookup => :test)
     addresses.each { |lookup, results| Geocoder::Lookup::Test.add_stub(lookup, [results]) }
-    addresses.each { |near, results| Geocoder::Lookup::Test.add_stub(near, [results]) }
+    Geocoder.configure(:near => :test)
+    distances.each { |near, results| Geocoder::Lookup::Test.add_stub(near, [results]) }
   end
 
   context 'when all organization attributes exist' do
@@ -205,14 +210,14 @@ describe Organization, type: :model do
 
     describe '.search_by_distance' do 
      it 'returns organization within a certain distance' do
-      expect(described_class.search_by_distance(user_one, rand(200..500)))
+      expect(described_class.search_by_distance(user_one, 200))
         .to include(org_one, org_two)
      end
 
      it 'does NOT return organizations outside of the range' do
-      expect(described_class.search_by_distance(user_one, rand(20..50)))
+      expect(described_class.search_by_distance(user_one, 25))
         .to include(org_one)
-      expect(described_class.search_by_distance(user_one, rand(20..50)))
+      expect(described_class.search_by_distance(user_one, 25))
         .not_to include(org_two)
      end
     end
