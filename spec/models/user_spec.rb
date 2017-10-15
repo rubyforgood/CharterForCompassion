@@ -54,8 +54,8 @@ describe User, type: :model do
             'country_code' => 'US'
         },
         "350 Fifth Avenue New York, NY 10118" => {
-            'latitude'     => 40.7143528,
-            'longitude'    => -74.0059731,
+            'latitude'     => 40.748817,
+            'longitude'    => -73.985428,
             'street'      => '350 Fifth Avenue',
             'state'        => 'New York',
             'state_code'   => 'NY',
@@ -78,12 +78,27 @@ describe User, type: :model do
             'state'        => 'Norwich',
             'country'      => 'United Kingdom',
             'country_code' => 'UK'
+        },
+        "405 Lexington Ave New York, NY 10174" => {
+            'latitude'     => 40.751652,
+            'longitude'    => -73.975311,
+            'street'      => '405 Lexington Ave',
+            'state'        => 'New York',
+            'state_code'   => 'NY',
+            'zipcode'      => '10174',
+            'country'      => 'United States',
+            'country_code' => 'US'
         }
       }
 
+      distances = [
+        [42.3597994, -71.0544602],  500
+      ]
+
       Geocoder.configure(:lookup => :test)
       addresses.each { |lookup, results| Geocoder::Lookup::Test.add_stub(lookup, [results]) }
-      addresses.each { |near, results| Geocoder::Lookup::Test.add_stub(near, [results]) }
+      Geocoder.configure(:near => :test)
+      distances.each { |near, results| Geocoder::Lookup::Test.add_stub(near, [results]) }
     end
 
     let(:user) { create(:user) }

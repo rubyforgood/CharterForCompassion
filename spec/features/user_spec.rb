@@ -60,6 +60,7 @@ describe "the signin process" do
 end
 
 describe 'the search process' do
+
   context 'when clicking the "Find Users" button' do
     let(:user) { create(:user) }
 
