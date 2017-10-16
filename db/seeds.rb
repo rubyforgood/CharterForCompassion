@@ -32,7 +32,9 @@ User.create!(RealAddresses.users_sample_hash.merge(
 
 puts "Populating roles..."
 Role.destroy_all
-ROLES = ['admin'].map { |role| Role.create(name: role) }
+ROLES = ['admin', 
+         'organization owner'
+].map { |role| Role.create(name: role) }
 
 puts "Populating skills..."
 Skill.destroy_all
