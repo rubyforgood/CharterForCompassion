@@ -45,11 +45,18 @@ class User < ApplicationRecord
   has_many :organization_users
   has_many :organizations, through: :organization_users
 
+  has_many :assignments
+  has_many :roles, through: :assignments
+
   geocoded_by :full_street_address
   after_validation :geocode, if: ->(user){ user.full_street_address.present? and user.full_street_address_changed? }
 
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def role?(role)
+    roles.any? { |r| r.name.underscore.to_sym == role }
   end
 
   # TODO: Add support for multiple interests
