@@ -1,6 +1,6 @@
 table {
   border-collapse: collapse;
-  margin: $small-spacing 0;
+  margin: $base-spacing 0;
   table-layout: fixed;
   width: 100%;
 }
@@ -8,13 +8,14 @@ table {
 th {
   border-bottom: 1px solid shade($base-border-color, 25%);
   font-weight: 600;
-  padding: $small-spacing 0;
-  text-align: left;
+  text-align: left
 }
 
 td {
   border-bottom: $base-border;
-  padding: $small-spacing 0;
+  padding-right:  1px;
+  padding-bottom: 80px;
+  overflow-wrap: break-word;
 }
 
 tr,
