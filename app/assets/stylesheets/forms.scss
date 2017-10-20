@@ -29,7 +29,7 @@ input[type="submit"] {
   @include span-columns(8);
 }
 
-.org-form, .interest-form{
+.org-form, .interest-form, .skill-form{
   @include shift(3);
   @include span-columns(6);
   .simple_form > .field > .has-error {
