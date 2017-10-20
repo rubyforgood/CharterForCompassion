@@ -34,8 +34,9 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-# User authentication
+# User authentication and roles
 gem 'devise', '~> 4.3'
+gem 'pundit'
 
 # Geocoding addresses to lat/long
 gem 'geocoder', '~> 1.4'
