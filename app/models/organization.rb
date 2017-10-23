@@ -11,7 +11,7 @@
 #  zipcode     :string           not null
 #  website_url :string
 #  charter_page_url :string
-#
+#  email       :string
 
 class Organization < ApplicationRecord
   has_many :organization_users
@@ -31,8 +31,9 @@ class Organization < ApplicationRecord
     validates :zipcode
     validates :website_url, :url => true
     validates :charter_page_url, :url => true
+    validates :email
   end
-
+    
   scope :search_by_distance, (lambda { |user, distance|
       if user.present? && distance.present?
         self.near([user.latitude, user.longitude], distance)

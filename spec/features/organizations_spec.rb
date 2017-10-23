@@ -20,6 +20,7 @@ describe 'When I am within the organizations view' do
         fill_in 'Zipcode', with: '12345'
         fill_in 'Website URL', with: 'http://www.MyOrg.com'
         fill_in 'Charter Page URL', with: 'http://www.MyCharterPage.com'
+        fill_in 'Email', with: 'membership@wwfus.org'
         click_on 'Create Organization'
 
         expect(page).to have_content('Sample Org')
@@ -34,7 +35,9 @@ describe 'When I am within the organizations view' do
     describe 'adding members' do
 
       before :each do
-        organization = create(:organization, name: "Sample Org")
+        organization = create(:organization, 
+                            name: "Sample Org", 
+                            email: 'membership@wwfus.org')
         organization.users << @olivia
 
         sign_in(@olivia)
@@ -109,7 +112,8 @@ describe 'the search process' do
         street: '1000 5th Ave',
         city: 'New York',
         state: 'NY',
-        zipcode: '10028'
+        zipcode: '10028',
+        email: 'membership@wwfus.org'
       )
     end
 
@@ -120,7 +124,8 @@ describe 'the search process' do
         street: '520 Chestnut St',
         city: 'Philadelphia',
         state: 'PA',
-        zipcode: '19106'
+        zipcode: '19106',
+        email: 'membership@wwfus.org'
       )
     end
 
@@ -134,6 +139,12 @@ describe 'the search process' do
       click_button 'Search organizations'
       expect(page).to have_content org_two.name
       expect(page).not_to have_content org_one.name
+    end
+    
+    it 'returns a list of organizations with email' do
+      select '50', from: 'distance'
+      click_button 'Search organizations'
+      expect(page).to have_content org_two.email
     end
   end
 end

@@ -39,6 +39,7 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
   validates :zipcode, presence: true
+  validates :email, presence: true
 
   has_and_belongs_to_many :skills
   has_and_belongs_to_many :interests

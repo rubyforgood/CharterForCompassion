@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016211209) do
+ActiveRecord::Schema.define(version: 20171019234159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20171016211209) do
     t.float "longitude"
     t.string "charter_page_url"
     t.integer "owner_id"
+    t.string "email"
   end
 
   create_table "organizations_skills", id: false, force: :cascade do |t|
@@ -131,7 +132,7 @@ ActiveRecord::Schema.define(version: 20171016211209) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
+  
   create_table "users_roles", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "role_id"

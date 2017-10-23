@@ -19,15 +19,18 @@
         <tr>
           <th>Name</th>
           <th>Website</th>
+          <th>Email</th>
         </tr>
       </thead>
       <tbody>
         <% @organizations.each do |org| %>
           <tr>
-            <td><%= org.name %></td>
-            <td><%= link_to org.website_url, "#{org.website_url}" %></td>
+            <td class="search-a"><%= org.name %></td>
+            <td class="search-a"><%= link_to org.website_url, "#{org.website_url}" %></td>
+            <td class="search-a"><%= mail_to org.email %></td>
         <% end %>
       </tbody>
     </table>
+    <p class='help'>Having Trouble? Email the Charter at contact@charterforcompassion.org</p>
   </div>
 </div>
