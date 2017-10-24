@@ -84,7 +84,7 @@ describe Organization, type: :model do
   end
 
   context 'when all organization attributes exist' do
-    let(:organization) { create(:organization) }
+    let(:organization) { create(:organization, email: 'membership@wwfus.org') }
 
     it 'creates a valid organization' do
       expect(organization.valid?).to be(true)
@@ -109,7 +109,8 @@ describe Organization, type: :model do
         street: '123 Main St.',
         city: 'Spring',
         state: 'VA',
-        zipcode: '20009'
+        zipcode: '20009',
+        email: 'membership@wwfus.org'
       )
     end
 
@@ -119,13 +120,13 @@ describe Organization, type: :model do
   end
 
   describe '#full_street_address_changed?' do
-    let(:organization) { create(:organization) }
+    let(:organization) { create(:organization, email: 'membership@wwfus.org') }
 
     it 'returns true if any of street, city, state, zipcode changes' do
       expect(organization.full_street_address_changed?).to be(false)
 
       ["street=", "city=", "state=", "zipcode="].each do |attribute|
-        organization = create(:organization)
+        organization = create(:organization, email: 'membership@wwfus.org')
         organization.send(attribute, "SOMETHING ELSE")
         expect(organization.full_street_address_changed?).to be(true)
       end
@@ -150,7 +151,8 @@ describe Organization, type: :model do
         street: '1000 5th Ave',
         city: 'New York',
         state: 'NY',
-        zipcode: '10028'
+        zipcode: '10028',
+        email: 'membership@wwfus.org'
       )
     end
 
@@ -161,7 +163,8 @@ describe Organization, type: :model do
         street: '4 South Market Building',
         city: 'Boston',
         state: 'MA',
-        zipcode: '02109'
+        zipcode: '02109',
+        email: 'membership@wwfus.org'
       )
     end
 
