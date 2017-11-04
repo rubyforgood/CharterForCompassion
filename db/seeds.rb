@@ -20,9 +20,10 @@ USERS = Array.new(NUM_USERS).map do |user_num|
       email:      FFaker::Internet.email,
       password:   'password',
   ))
-  sleep 3
+  sleep 0.34
 end
 
+sleep 0.34
 User.create!(RealAddresses.users_sample_hash.merge(
     first_name: FFaker::Name.first_name,
     last_name:  FFaker::Name.last_name,
@@ -123,6 +124,7 @@ ORGANIZATIONS = [
       website_url: "http://www.#{organization_name.gsub(' ', '_')}.org",
       charter_page_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
   ))
+  sleep 0.34
 end
 
 

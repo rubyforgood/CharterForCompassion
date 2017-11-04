@@ -1,9 +1,16 @@
 require 'rails_helper'
 
+def delay
+  sleep 0.68
+end
+
 describe 'When I am within the organizations view' do
   before :each do
+    delay
     @olivia = create(:user, first_name: "Olivia")
+    delay
     @new_member = create(:user, first_name: "Nancy")
+    delay
   end
 
   context 'When I create an organization' do
@@ -21,8 +28,9 @@ describe 'When I am within the organizations view' do
         fill_in 'Website URL', with: 'http://www.MyOrg.com'
         fill_in 'Charter Page URL', with: 'http://www.MyCharterPage.com'
         fill_in 'Email', with: 'membership@wwfus.org'
+        delay
         click_on 'Create Organization'
-
+        delay
         expect(page).to have_content('Sample Org')
         within '.members' do
           expect(page).to have_content(@olivia.first_name)
@@ -35,11 +43,13 @@ describe 'When I am within the organizations view' do
     describe 'adding members' do
 
       before :each do
+        delay
         organization = create(:organization, 
                             name: "Sample Org", 
                             email: 'membership@wwfus.org')
+        delay
         organization.users << @olivia
-
+        delay
         sign_in(@olivia)
         click_link 'My Organizations'
         click_link organization.name
@@ -48,21 +58,27 @@ describe 'When I am within the organizations view' do
       it 'adds a member if the email address exists' do
         within '.add-member' do
           fill_in 'email', with: @new_member.email
+          delay
           click_button 'Add Member'
         end
 
         within '.members' do
+          delay
           expect(page).to have_content(@new_member.name)
         end
       end
 
       it 'displays a warning if the email does not exist' do
         within '.add-member' do
+          delay
           fill_in 'email', with: 'NOPE@NOPE.COM'
+          delay
           click_button 'Add Member'
+          delay
         end
 
         within '.notifications' do
+          delay
           expect(page).to have_content('Could not find a user')
         end
       end
@@ -70,10 +86,12 @@ describe 'When I am within the organizations view' do
       it 'displays a warning if the user is already part of the organization' do
         within '.add-member' do
           fill_in 'email', with: "#{@olivia.email}"
+          delay
           click_button 'Add Member'
         end
 
         within '.notifications' do
+          delay
           expect(page).to have_content('already part of the organization')
         end
       end
@@ -84,7 +102,7 @@ end
 describe 'the search process' do
   context 'when clicking the "Find Organizations" button' do
     let(:user) { create(:user) }
-
+    delay
     it 'redirects to the search organizations page' do
       sign_in(user)
       visit '/'
@@ -95,6 +113,7 @@ describe 'the search process' do
 
   context 'when searching by distance' do
     let(:user_one) do
+      delay
       create(
         :user,
         first_name: 'One and only Philadelphian',
@@ -106,6 +125,7 @@ describe 'the search process' do
     end
 
     let!(:org_one) do
+      delay
       create(
         :organization,
         name: 'Metropolitan Museum of Art',
@@ -118,6 +138,7 @@ describe 'the search process' do
     end
 
     let!(:org_two) do
+      delay
       create(
         :organization,
         name: 'Independence Hall',
@@ -136,14 +157,19 @@ describe 'the search process' do
 
     it 'returns a list of organizations by distance' do
       select '50', from: 'distance'
+      delay
       click_button 'Search organizations'
+      delay
       expect(page).to have_content org_two.name
+      delay
       expect(page).not_to have_content org_one.name
     end
     
     it 'returns a list of organizations with email' do
       select '50', from: 'distance'
+      delay
       click_button 'Search organizations'
+      delay
       expect(page).to have_content org_two.email
     end
   end

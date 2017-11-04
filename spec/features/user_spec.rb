@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+def delay
+  sleep 0.68
+end
+
 describe "the signin process" do
   context "while on the home page" do
     context "when click Sign Up button" do
@@ -24,6 +28,7 @@ describe "the signin process" do
         fill_in 'Password', with: 'password'
         fill_in 'Password confirmation', with: 'password'
         click_button 'Sign up'
+        delay
         expect(page).to have_content 'Work with the Charter'
     end
 
@@ -42,6 +47,7 @@ describe "the signin process" do
           fill_in 'Password', with: 'password'
           fill_in 'Password confirmation', with: 'password'
           click_button 'Sign up'
+          delay
           expect(page).to have_content 'Work with the Charter'
         end
     end
@@ -50,6 +56,7 @@ describe "the signin process" do
   context "when in sign in page" do
     before :each do
       @user = create(:user)
+      delay
     end
 
     it "signs me in" do
@@ -63,6 +70,7 @@ describe 'the search process' do
 
   context 'when clicking the "Find Users" button' do
     let(:user) { create(:user) }
+    delay
 
     it 'redirects to the search users page' do
       sign_in(user)
@@ -74,6 +82,7 @@ describe 'the search process' do
 
   context 'when searching by interest, skill, and distance' do
     let(:user_one) do
+      delay
       create(
         :user,
         first_name: 'One and only Bostonian',
@@ -83,8 +92,9 @@ describe 'the search process' do
         zipcode: '02109'
       )
     end
-
+    
     let(:user_two) do
+      delay
       create(
         :user,
         first_name: 'New Yorker 1',
@@ -94,8 +104,9 @@ describe 'the search process' do
         zipcode: '10118'
       )
     end
-
+    
     let(:user_three) do
+      delay
       create(
         :user,
         first_name: 'New Yorker 2',
@@ -123,16 +134,22 @@ describe 'the search process' do
     it 'returns a list of users by distance and interest' do
       select user_one.interests.first.interest, from: 'interest'
       select '500', from: 'distance'
+      delay
       click_button 'Search users'
+      delay
       expect(page).to have_content user_one.first_name
+      delay
       expect(page).not_to have_content user_three.first_name
     end
 
     it 'returns a list of users by distance and skill' do
       select user_three.skills.first.skill, from: 'skill'
       select '500', from: 'distance'
+      delay
       click_button 'Search users'
+      delay
       expect(page).to have_content user_three.first_name
+      delay
       expect(page).not_to have_content user_one.first_name
     end
   end
@@ -140,6 +157,7 @@ describe 'the search process' do
   describe 'When a user edits their profile' do
     context 'and all attributes are specified correctly' do
       before :each do
+        delay
         @user = create(:user)
       end
 
@@ -162,6 +180,7 @@ describe 'the search process' do
         expect(page).to have_content('Work with the Charter')
 
         within '.notifications' do
+          delay
           expect(page).to have_content('Your account has been updated successfully.')
         end
       end
@@ -173,10 +192,11 @@ describe 'the search process' do
 
         fill_in 'Current password', with: 'password'
         click_button 'Update'
-
+        delay
         expect(page).to have_content('Work with the Charter')
 
         within '.notifications' do
+          delay
           expect(page).to have_content('Your account has been updated successfully.')
         end
       end
