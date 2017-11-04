@@ -56,13 +56,14 @@ SKILLS = [
     'grassroots organizing',
     'IT',
     'IT - Joomla',
-    'IT – civicCRM',
+    'IT-CiviCRM',
     'journalist - writer',
     'marketing',
     'mentoring',
     'organizational coordinator',
     'public speaking',
     'social media',
+    'musician',
 ].map {  |skill| Skill.create(skill: skill) }
 
 
@@ -83,6 +84,7 @@ INTERESTS = [
     'religion/interfaith/spirituality',
     'women and girls',
     'youth',
+    'technology',
 ].map {|interest| Interest.create(interest: interest) }
 
 
