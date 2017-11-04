@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+def delay
+  sleep 0.34
+end
+
 describe "the signin process" do
   context "while on the home page" do
     context "when click Sign Up button" do
@@ -24,6 +28,7 @@ describe "the signin process" do
         fill_in 'Password', with: 'password'
         fill_in 'Password confirmation', with: 'password'
         click_button 'Sign up'
+        delay
         expect(page).to have_content 'Work with the Charter'
     end
 
@@ -42,6 +47,7 @@ describe "the signin process" do
           fill_in 'Password', with: 'password'
           fill_in 'Password confirmation', with: 'password'
           click_button 'Sign up'
+          delay
           expect(page).to have_content 'Work with the Charter'
         end
     end
@@ -50,6 +56,7 @@ describe "the signin process" do
   context "when in sign in page" do
     before :each do
       @user = create(:user)
+      delay
     end
 
     it "signs me in" do
@@ -63,6 +70,7 @@ describe 'the search process' do
 
   context 'when clicking the "Find Users" button' do
     let(:user) { create(:user) }
+    delay
 
     it 'redirects to the search users page' do
       sign_in(user)
@@ -73,6 +81,7 @@ describe 'the search process' do
   end
 
   context 'when searching by interest, skill, and distance' do
+    delay
     let(:user_one) do
       create(
         :user,
@@ -84,6 +93,7 @@ describe 'the search process' do
       )
     end
 
+    delay
     let(:user_two) do
       create(
         :user,
@@ -95,6 +105,7 @@ describe 'the search process' do
       )
     end
 
+    delay
     let(:user_three) do
       create(
         :user,
@@ -140,6 +151,7 @@ describe 'the search process' do
   describe 'When a user edits their profile' do
     context 'and all attributes are specified correctly' do
       before :each do
+        delay
         @user = create(:user)
       end
 
