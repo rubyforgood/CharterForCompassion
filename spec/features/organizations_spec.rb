@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 def delay
-  sleep 0.34
+  sleep 0.68
 end
 
 describe 'When I am within the organizations view' do
