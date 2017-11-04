@@ -81,8 +81,8 @@ describe 'the search process' do
   end
 
   context 'when searching by interest, skill, and distance' do
-    delay
     let(:user_one) do
+      delay
       create(
         :user,
         first_name: 'One and only Bostonian',
@@ -92,9 +92,9 @@ describe 'the search process' do
         zipcode: '02109'
       )
     end
-
-    delay
+    
     let(:user_two) do
+      delay
       create(
         :user,
         first_name: 'New Yorker 1',
@@ -104,9 +104,9 @@ describe 'the search process' do
         zipcode: '10118'
       )
     end
-
-    delay
+    
     let(:user_three) do
+      delay
       create(
         :user,
         first_name: 'New Yorker 2',
@@ -135,7 +135,9 @@ describe 'the search process' do
       select user_one.interests.first.interest, from: 'interest'
       select '500', from: 'distance'
       click_button 'Search users'
+      delay
       expect(page).to have_content user_one.first_name
+      delay
       expect(page).not_to have_content user_three.first_name
     end
 
@@ -143,7 +145,9 @@ describe 'the search process' do
       select user_three.skills.first.skill, from: 'skill'
       select '500', from: 'distance'
       click_button 'Search users'
+      delay
       expect(page).to have_content user_three.first_name
+      delay
       expect(page).not_to have_content user_one.first_name
     end
   end
@@ -174,6 +178,7 @@ describe 'the search process' do
         expect(page).to have_content('Work with the Charter')
 
         within '.notifications' do
+          delay
           expect(page).to have_content('Your account has been updated successfully.')
         end
       end
@@ -185,10 +190,11 @@ describe 'the search process' do
 
         fill_in 'Current password', with: 'password'
         click_button 'Update'
-
+        delay
         expect(page).to have_content('Work with the Charter')
 
         within '.notifications' do
+          delay
           expect(page).to have_content('Your account has been updated successfully.')
         end
       end
