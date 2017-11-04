@@ -134,6 +134,7 @@ describe 'the search process' do
     it 'returns a list of users by distance and interest' do
       select user_one.interests.first.interest, from: 'interest'
       select '500', from: 'distance'
+      delay
       click_button 'Search users'
       delay
       expect(page).to have_content user_one.first_name
@@ -144,6 +145,7 @@ describe 'the search process' do
     it 'returns a list of users by distance and skill' do
       select user_three.skills.first.skill, from: 'skill'
       select '500', from: 'distance'
+      delay
       click_button 'Search users'
       delay
       expect(page).to have_content user_three.first_name

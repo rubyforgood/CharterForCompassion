@@ -70,6 +70,7 @@ describe 'When I am within the organizations view' do
 
       it 'displays a warning if the email does not exist' do
         within '.add-member' do
+          delay
           fill_in 'email', with: 'NOPE@NOPE.COM'
           delay
           click_button 'Add Member'
@@ -158,6 +159,7 @@ describe 'the search process' do
       select '50', from: 'distance'
       delay
       click_button 'Search organizations'
+      delay
       expect(page).to have_content org_two.name
       delay
       expect(page).not_to have_content org_one.name
@@ -167,6 +169,7 @@ describe 'the search process' do
       select '50', from: 'distance'
       delay
       click_button 'Search organizations'
+      delay
       expect(page).to have_content org_two.email
     end
   end
