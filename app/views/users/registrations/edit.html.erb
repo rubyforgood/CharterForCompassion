@@ -53,14 +53,14 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.label :password, 'Change Password' %> <i>(leave blank if you don't want to change it)</i>
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
 
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
 
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation, 'New Password Confirmation' %><i>(leave blank if you don't want to change it)</i>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
