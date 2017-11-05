@@ -20,7 +20,6 @@ USERS = Array.new(NUM_USERS).map do |user_num|
       email:      FFaker::Internet.email,
       password:   'password',
   ))
-  sleep 0.34
 end
 
 sleep 0.34
@@ -33,7 +32,7 @@ User.create!(RealAddresses.users_sample_hash.merge(
 
 puts "Populating roles..."
 Role.destroy_all
-ROLES = ['admin', 
+ROLES = ['admin',
          'organization owner'
 ].map { |role| Role.create(name: role) }
 
@@ -122,6 +121,7 @@ ORGANIZATIONS = [
 ].map do |organization_name|
   Organization.create!(RealAddresses.sample_hash.merge(
       name:        organization_name,
+      email:       FFaker::Internet.email,
       description: FFaker::Lorem.paragraphs(rand(1..3)).join("\n\n"),
       website_url: "http://www.#{organization_name.gsub(' ', '_')}.org",
       charter_page_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
