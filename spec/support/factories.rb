@@ -27,7 +27,7 @@ FactoryGirl.define do
     end
     description 'Some description'
 
-    sequence :street do |num|
+    sequence :street1 do |num|
       "#{num} Times Square"
     end
     city 'New York'

@@ -5,7 +5,9 @@
 #  id          :integer          not null, primary key
 #  name        :string           not null
 #  description :text
-#  street      :string           not null
+#  street1     :string           not null
+#  street2     :string           default("")
+#  street3     :string           default("")
 #  city        :string           not null
 #  state       :string           not null
 #  zipcode     :string           not null
@@ -25,7 +27,7 @@ class Organization < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :street
+    validates :street1
     validates :city
     validates :state
     validates :zipcode
@@ -33,7 +35,7 @@ class Organization < ApplicationRecord
     validates :charter_page_url, :url => true
     validates :email
   end
-    
+
   scope :search_by_distance, (lambda { |user, distance|
       if user.present? && distance.present?
         self.near([user.latitude, user.longitude], distance)
@@ -41,10 +43,14 @@ class Organization < ApplicationRecord
     })
 
   def full_street_address
-    return "#{street} #{city}, #{state} #{zipcode}"
+    "#{full_street} #{city}, #{state} #{zipcode}"
+  end
+
+  def full_street
+    [street1, street2, street3].join(" ").strip
   end
 
   def full_street_address_changed?
-    return street_changed? || city_changed? || state_changed? || zipcode_changed?
+    street1_changed? || street2_changed? || street3_changed? || city_changed? || state_changed? || zipcode_changed?
   end
 end

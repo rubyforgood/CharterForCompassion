@@ -7,7 +7,7 @@ describe Organization, type: :model do
       "4 Times Square New York, NY 10036" => {
           'latitude'     => 40.7143528,
           'longitude'    => -74.0059731,
-          'street'      => '350 Fifth Avenue',
+          'street'       => '350 Fifth Avenue',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'country'      => 'United States',
@@ -16,16 +16,24 @@ describe Organization, type: :model do
       "123 Main St. Spring, VA 20009" => {
           'latitude'     => 38.476288,
           'longitude'    => -80.410396,
-          'street'      => '123 Main St.',
+          'street'       => '123 Main St.',
           'state'        => 'Spring',
           'state_code'   => 'VA',
           'country'      => 'United States',
           'country_code' => 'US'
       },
+      "Manor Farm Barns, Fox Road Framingham Pigot Norwich, Norfolk NR14 7PZ" => {
+          'latitude'     => 38.476288,
+          'longitude'    => -80.410396,
+          'street'       => 'Manor Farm Barns, Fox Road Framingham Pigot',
+          'state'        => 'Norwich',
+          'country'      => 'United Kingdom',
+          'country_code' => 'UK'
+      },
       "520 Chestnut St Philadelphia PA 19106" => {
           'latitude'     => 38.476288,
           'longitude'    => -80.410396,
-          'street'      => '520 Chestnut St',
+          'street'       => '520 Chestnut St',
           'state'        => 'Philadelphia',
           'state_code'   => 'PA',
           'country'      => '19106',
@@ -34,7 +42,7 @@ describe Organization, type: :model do
       "350 Fifth Avenue New York, NY 10118" => {
           'latitude'     => 40.7484,
           'longitude'    => -73.9857,
-          'street'      => '350 Fifth Avenue',
+          'street'       => '350 Fifth Avenue',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'country'      => 'United States',
@@ -43,7 +51,7 @@ describe Organization, type: :model do
       "1000 5th Ave New York, NY 10028" => {
           'latitude'     => 40.7484,
           'longitude'    => -73.9857,
-          'street'      => '1000 5th Ave',
+          'street'       => '1000 5th Ave',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'country'      => 'United States',
@@ -52,7 +60,7 @@ describe Organization, type: :model do
       "4 South Market Building Boston, MA 02109" => {
           'latitude'     => 42.3592642,
           'longitude'    => -71.0564398,
-          'street'      => '4 South Market Building',
+          'street'       => '4 South Market Building',
           'state'        => 'Boston',
           'state_code'   => 'MA',
           'country'      => 'United States',
@@ -61,7 +69,7 @@ describe Organization, type: :model do
     }
 
     15.times do |n|
-      addresses["#{n} Times Square New York, NY 10036"] = 
+      addresses["#{n} Times Square New York, NY 10036"] =
         {
           'latitude'     => 40.7143528,
           'longitude'    => -74.0059731,
@@ -69,7 +77,7 @@ describe Organization, type: :model do
           'state'        => 'New York',
           'state_code'   => 'NY',
           'country'      => 'United States',
-          'country_code' => 'US'   
+          'country_code' => 'US'
         }
     end
 
@@ -106,16 +114,28 @@ describe Organization, type: :model do
     let(:organization) do
       create(
         :organization,
-        street: '123 Main St.',
+        street1: '123 Main St.',
         city: 'Spring',
         state: 'VA',
         zipcode: '20009',
         email: 'membership@wwfus.org'
       )
     end
+    let(:international_organization) do
+      create(
+        :organization,
+        street1: 'Manor Farm Barns, Fox Road',
+        street2: 'Framingham Pigot',
+        city: 'Norwich',
+        state: 'Norfolk',
+        zipcode: 'NR14 7PZ',
+        email: 'membership@wwfus.org'
+      )
+    end
 
     it 'returns a string with the street, city, state, and zip code combined' do
       expect(organization.full_street_address).to eq('123 Main St. Spring, VA 20009')
+      expect(international_organization.full_street_address).to eq('Manor Farm Barns, Fox Road Framingham Pigot Norwich, Norfolk NR14 7PZ')
     end
   end
 
@@ -125,7 +145,7 @@ describe Organization, type: :model do
     it 'returns true if any of street, city, state, zipcode changes' do
       expect(organization.full_street_address_changed?).to be(false)
 
-      ["street=", "city=", "state=", "zipcode="].each do |attribute|
+      ["street1=", "street2=", "street3=", "city=", "state=", "zipcode="].each do |attribute|
         organization = create(:organization, email: 'membership@wwfus.org')
         organization.send(attribute, "SOMETHING ELSE")
         expect(organization.full_street_address_changed?).to be(true)
@@ -148,7 +168,7 @@ describe Organization, type: :model do
       create(
         :organization,
         name: 'Metropolitan Museum of Art',
-        street: '1000 5th Ave',
+        street1: '1000 5th Ave',
         city: 'New York',
         state: 'NY',
         zipcode: '10028',
@@ -160,7 +180,7 @@ describe Organization, type: :model do
       create(
         :organization,
         name: 'Faneuil Hall Marketplace',
-        street: '4 South Market Building',
+        street1: '4 South Market Building',
         city: 'Boston',
         state: 'MA',
         zipcode: '02109',
@@ -211,7 +231,7 @@ describe Organization, type: :model do
     #   end
     # end
 
-    describe '.search_by_distance' do 
+    describe '.search_by_distance' do
      it 'returns organization within a certain distance' do
       expect(described_class.search_by_distance(user_one, 200))
         .to include(org_one, org_two)
