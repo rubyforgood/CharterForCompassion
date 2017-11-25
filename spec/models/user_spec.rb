@@ -98,11 +98,21 @@ describe User, type: :model do
             'country'      => '19106',
             'country_code' => 'US'
         },
+        "130 S 9th St Philadelphia PA 19107" => {
+            'latitude'     => 39.948909,
+            'longitude'    => -75.155953,
+            'street'      => '130 S 9th St',
+            'state'        => 'Philadelphia',
+            'state_code'   => 'PA',
+            'country'      => '19107',
+            'country_code' => 'US'
+        },
       }
 
       distances = [
-        [42.3597994, -71.0544602],  500,
-        [38.476288, -80.410396],  50
+        [40.751652, -73.975311],  499,
+        [42.3597994, -71.0544602],  499,
+        [38.476288, -80.410396],  49
       ]
 
       Geocoder.configure(:lookup => :test)
