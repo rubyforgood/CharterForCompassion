@@ -25,8 +25,11 @@ describe Organization, type: :model do
       "Manor Farm Barns, Fox Road Framingham Pigot Norwich, Norfolk NR14 7PZ" => {
           'latitude'     => 38.476288,
           'longitude'    => -80.410396,
-          'street'       => 'Manor Farm Barns, Fox Road Framingham Pigot',
-          'city'        => 'Norwich',
+          'street1'      => 'Manor Farm Barns, Fox Road',
+          'street2'      => 'Framingham Pigot',
+          'city'         => 'Norwich',
+          'state'        => 'Norfolk',
+          'zipcode'      => 'NR14 7PZ',          
           'country'      => 'United Kingdom',
           'country_code' => 'UK'
       },
