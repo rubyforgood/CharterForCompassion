@@ -43,7 +43,7 @@ describe User, type: :model do
             'country'      => 'United States',
             'country_code' => 'US'
         },
-        "1600 Pennsylvania Ave. Washington, DC 20500" => {
+        "1600 Pennsylvania Ave Washington, DC 20500" => {
             'latitude'     => 38.8976763,
             'longitude'    => -77.0365298,
             'street'       => '1600 Pennsylvania Ave',
