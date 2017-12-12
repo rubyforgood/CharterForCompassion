@@ -7,10 +7,10 @@ FactoryGirl.define do
     password 'password'
     first_name 'indy'
     last_name 'vidual'
-    street1 '1600 Pennsylvania Ave.'
-    city 'Washington'
-    state 'DC'
-    zipcode '20500'
+    street1 '405 Lexington Ave'
+    city 'New York'
+    state 'NY'
+    zipcode '10174'
   end
 
   factory :interest do
