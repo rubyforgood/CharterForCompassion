@@ -14,21 +14,27 @@ NUM_USERS = 5
 puts "Populating users..."
 User.destroy_all
 USERS = Array.new(NUM_USERS).map do |user_num|
-  User.create!(RealAddresses.users_sample_hash.merge(
+  User.create!(RealAddresses.sample_hash.merge(
       first_name: FFaker::Name.first_name,
       last_name:  FFaker::Name.last_name,
       email:      FFaker::Internet.email,
       password:   'password',
   ))
-  sleep 3
 end
 
-User.create!(RealAddresses.users_sample_hash.merge(
+sleep 0.34
+User.create!(RealAddresses.sample_hash.merge(
     first_name: FFaker::Name.first_name,
     last_name:  FFaker::Name.last_name,
     email:      "bob@example.com",
     password:   'password',
 ))
+
+puts "Populating roles..."
+Role.destroy_all
+ROLES = ['admin',
+         'organization owner'
+].map { |role| Role.create(name: role) }
 
 puts "Populating skills..."
 Skill.destroy_all
@@ -49,13 +55,14 @@ SKILLS = [
     'grassroots organizing',
     'IT',
     'IT - Joomla',
-    'IT – civicCRM',
+    'IT-CiviCRM',
     'journalist - writer',
     'marketing',
     'mentoring',
     'organizational coordinator',
     'public speaking',
     'social media',
+    'musician',
 ].map {  |skill| Skill.create(skill: skill) }
 
 
@@ -76,6 +83,7 @@ INTERESTS = [
     'religion/interfaith/spirituality',
     'women and girls',
     'youth',
+    'technology',
 ].map {|interest| Interest.create(interest: interest) }
 
 
@@ -113,10 +121,12 @@ ORGANIZATIONS = [
 ].map do |organization_name|
   Organization.create!(RealAddresses.sample_hash.merge(
       name:        organization_name,
+      email:       FFaker::Internet.email,
       description: FFaker::Lorem.paragraphs(rand(1..3)).join("\n\n"),
       website_url: "http://www.#{organization_name.gsub(' ', '_')}.org",
       charter_page_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
   ))
+  sleep 0.34
 end
 
 

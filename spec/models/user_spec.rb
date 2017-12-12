@@ -43,7 +43,7 @@ describe User, type: :model do
             'country'      => 'United States',
             'country_code' => 'US'
         },
-        "1600 Pennsylvania Ave. Washington, DC 20500" => {
+        "1600 Pennsylvania Ave Washington, DC 20500" => {
             'latitude'     => 38.8976763,
             'longitude'    => -77.0365298,
             'street'       => '1600 Pennsylvania Ave',
@@ -88,11 +88,21 @@ describe User, type: :model do
             'zipcode'      => '10174',
             'country'      => 'United States',
             'country_code' => 'US'
-        }
+        },
+        "520 Chestnut St Philadelphia PA 19106" => {
+            'latitude'     => 38.476288,
+            'longitude'    => -80.410396,
+            'street'      => '520 Chestnut St',
+            'state'        => 'Philadelphia',
+            'state_code'   => 'PA',
+            'country'      => '19106',
+            'country_code' => 'US'
+        },
       }
 
       distances = [
-        [42.3597994, -71.0544602],  500
+        [42.3597994, -71.0544602],  500,
+        [38.476288, -80.410396],  50
       ]
 
       Geocoder.configure(:lookup => :test)

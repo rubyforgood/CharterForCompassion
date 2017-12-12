@@ -7,10 +7,10 @@ FactoryGirl.define do
     password 'password'
     first_name 'indy'
     last_name 'vidual'
-    street1 '1600 Pennsylvania Ave.'
-    city 'Washington'
-    state 'DC'
-    zipcode '20500'
+    street1 '405 Lexington Ave'
+    city 'New York'
+    state 'NY'
+    zipcode '10174'
   end
 
   factory :interest do
@@ -27,7 +27,7 @@ FactoryGirl.define do
     end
     description 'Some description'
 
-    sequence :street do |num|
+    sequence :street1 do |num|
       "#{num} Times Square"
     end
     city 'New York'

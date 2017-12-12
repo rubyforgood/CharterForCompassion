@@ -25,7 +25,7 @@ a {
   color: $action-color;
   text-decoration-skip: ink;
   transition: color $base-duration $base-timing;
-
+  
   &:hover {
     color: shade($action-color, 25%);
   }
@@ -42,4 +42,20 @@ hr {
   border-right: 0;
   border-top: 0;
   margin: $base-spacing 0;
+}
+
+.help {
+  font-color: #656363;
+  font-family: arial, sans-serif;
+  text-align: center;
+  margin: 0 ;
+}
+
+.search-a {
+  color: $action-color;
+  text-decoration-skip: ink;
+  transition: color $base-duration $base-timing;
+  border-bottom: $base-border;
+  padding-right:  60px;
+  padding-bottom: 50px;
 }

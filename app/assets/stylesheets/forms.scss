@@ -25,11 +25,11 @@ input[type="submit"] {
 }
 
 .search-results-list {
-  @include shift(2);
-  @include span-columns(8);
+  @include shift(1.5);
+  @include span-columns(9);
 }
 
-.org-form, .interest-form{
+.org-form, .interest-form, .skill-form{
   @include shift(3);
   @include span-columns(6);
   .simple_form > .field > .has-error {
