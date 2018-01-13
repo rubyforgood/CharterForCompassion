@@ -161,7 +161,7 @@ describe 'the search process' do
             'state_code'   => 'PA',
             'zipcode'      => '19107',
             'country_code' => 'US'
-        },  
+        },
         "1000 5th Ave New York, NY 10028" => {
             'latitude'     => 40.7484,
             'longitude'    => -73.9857,
@@ -231,7 +231,7 @@ describe 'the search process' do
         zipcode: '19106',
         email: 'membership@wwfus.org'
       )
-    end  
+    end
 
     before do
       sign_in(user_one)
@@ -254,6 +254,12 @@ describe 'the search process' do
       click_button 'Search organizations'
       delay
       # expect(page).to have_content org_two.email
+    end
+  end
+
+  describe "removing members" do
+    it "has a remove members link" do
+      expect(click_link('Remove Member')).page.find_by_id("#remove-members", visible: true)
     end
   end
 end

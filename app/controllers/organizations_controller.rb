@@ -39,6 +39,13 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def destroy_members
+    respond_to do |format|
+      format.html { redirect_to organization_url, notice: 'User was successfully removed from the Organization' }
+      format.json { head :no_content }
+    end
+  end
+
   def add_member
     user = User.find_by(email: params[:email])
     if (user && @organization.users.include?(user))

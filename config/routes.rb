@@ -6,9 +6,13 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: "users/registrations"
   }
-  
+
   resources :organizations, only: [:index, :show, :new, :edit, :update, :create] do
     put 'add_member', on: :member
+  end
+
+  resources :organizations, only: [:index, :show, :new, :edit, :update, :create] do
+    put 'destroy_members', on: :member
   end
 
   resources :interests
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
   get 'edit', to: 'skills#edit'
   get 'new', to: 'skills#new'
   delete 'destroy', to: 'skills#destroy'
-  
+
   get '/search/users', to: 'search#users', as: 'search_users'
   get '/search/organizations', to: 'search#organizations', as: 'search_organizations'
 end
