@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 def delay
-  sleep 0.68
+  # sleep 0.68
 end
 
 describe "the signin process" do
