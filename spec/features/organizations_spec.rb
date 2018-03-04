@@ -246,7 +246,7 @@ describe 'the search process' do
       # expect(page).to have_content org_two.name
       # delay
       # expect(page).not_to have_content org_one.name
-    end
+    # end
 
     # it 'returns a list of organizations with email' do
     #   select '50', from: 'distance'
