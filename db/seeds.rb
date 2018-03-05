@@ -22,7 +22,7 @@ USERS = Array.new(NUM_USERS).map do |user_num|
   ))
 end
 
-sleep 0.34
+# sleep 0.34
 User.create!(RealAddresses.sample_hash.merge(
     first_name: FFaker::Name.first_name,
     last_name:  FFaker::Name.last_name,

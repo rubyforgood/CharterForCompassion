@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 def delay
-  sleep 0.68
+  # sleep 0.68
 end
 
 describe "the signin process" do
@@ -266,8 +266,8 @@ describe 'the search process' do
         fill_in 'City', with: 'New York'
         fill_in 'State', with: 'NY'
         fill_in 'Zipcode', with: '10028'
-        fill_in 'Password', with: 'asdfqwer'
-        fill_in 'Password confirmation', with: 'asdfqwer'
+        fill_in 'Change Password', with: 'asdfqwer'
+        fill_in 'New Password Confirmation', with: 'asdfqwer'
         fill_in 'Current password', with: 'password'
         click_button 'Update'
 
