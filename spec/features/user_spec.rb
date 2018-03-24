@@ -11,7 +11,7 @@ describe "the signin process" do
       "405 Lexington Ave New York, NY 10174" => {
           'latitude'     => 40.751652,
           'longitude'    => 40.751652,
-          'street'       => '405 Lexington Ave',
+          'street1'       => '405 Lexington Ave',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'zipcode'      => '10174',
@@ -21,7 +21,7 @@ describe "the signin process" do
       "405 Lexington Ave Manor Farm Barns, For Road Framingham Pigot New York, NY 10174" => {
           'latitude'     => 40.751652,
           'longitude'    => 40.751652,
-          'street'       => '405 Lexington Ave',
+          'street1'       => '405 Lexington Ave',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'zipcode'      => '10174',
@@ -102,7 +102,7 @@ describe 'the search process' do
       "4 South Market Building Boston, MA 02109" => {
           'latitude'     => 42.3597994,
           'longitude'    => -71.0544602,
-          'street'      => '4 South Market Building',
+          'street1'      => '4 South Market Building',
           'state'        => 'Boston',
           'state_code'   => 'MA',
           'zipcode'      => '02109',
@@ -112,7 +112,7 @@ describe 'the search process' do
       "405 Lexington Ave New York, NY 10174" => {
           'latitude'     => 40.751652,
           'longitude'    => -73.975383,
-          'street'      => '405 Lexington Ave',
+          'street1'      => '405 Lexington Ave',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'zipcode'      => '10174',
@@ -122,7 +122,7 @@ describe 'the search process' do
       "350 Fifth Avenue New York, NY 10118" => {
           'latitude'     => 40.748817,
           'longitude'    => -73.985428,
-          'street'      => '350 Fifth Avenue',
+          'street1'      => '350 Fifth Avenue',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'zipcode'      => '10174',
@@ -236,7 +236,7 @@ describe 'the search process' do
         "1000 5th Ave New York, NY 10028" => {
             'latitude'     => 40.7484,
             'longitude'    => -73.9857,
-            'street'       => '1000 5th Ave',
+            'street1'       => '1000 5th Ave',
             'state'        => 'New York',
             'state_code'   => 'NY',
             'zipcode'      => '10174',

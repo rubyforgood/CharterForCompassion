@@ -7,7 +7,7 @@ describe Organization, type: :model do
       "4 Times Square New York, NY 10036" => {
           'latitude'     => 40.7143528,
           'longitude'    => -74.0059731,
-          'street'       => '350 Fifth Avenue',
+          'street1'       => '350 Fifth Avenue',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'country'      => 'United States',
@@ -16,7 +16,7 @@ describe Organization, type: :model do
       "123 Main St. Spring, VA 20009" => {
           'latitude'     => 38.476288,
           'longitude'    => -80.410396,
-          'street'       => '123 Main St.',
+          'street1'       => '123 Main St.',
           'state'        => 'Spring',
           'state_code'   => 'VA',
           'country'      => 'United States',
@@ -25,7 +25,7 @@ describe Organization, type: :model do
       "Manor Farm Barns, Fox Road Framingham Pigot Norwich, Norfolk NR14 7PZ" => {
           'latitude'     => 38.476288,
           'longitude'    => -80.410396,
-          'street'       => 'Manor Farm Barns, Fox Road Framingham Pigot',
+          'street1'       => 'Manor Farm Barns, Fox Road Framingham Pigot',
           'state'        => 'Norwich',
           'country'      => 'United Kingdom',
           'country_code' => 'UK'
@@ -33,7 +33,7 @@ describe Organization, type: :model do
       "520 Chestnut St Philadelphia PA 19106" => {
           'latitude'     => 38.476288,
           'longitude'    => -80.410396,
-          'street'       => '520 Chestnut St',
+          'street1'       => '520 Chestnut St',
           'state'        => 'Philadelphia',
           'state_code'   => 'PA',
           'country'      => '19106',
@@ -42,7 +42,7 @@ describe Organization, type: :model do
       "350 Fifth Avenue New York, NY 10118" => {
           'latitude'     => 40.7484,
           'longitude'    => -73.9857,
-          'street'       => '350 Fifth Avenue',
+          'street1'       => '350 Fifth Avenue',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'country'      => 'United States',
@@ -51,7 +51,7 @@ describe Organization, type: :model do
       "1000 5th Ave New York, NY 10028" => {
           'latitude'     => 40.7484,
           'longitude'    => -73.9857,
-          'street'       => '1000 5th Ave',
+          'street1'       => '1000 5th Ave',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'country'      => 'United States',
@@ -60,7 +60,7 @@ describe Organization, type: :model do
       "4 South Market Building Boston, MA 02109" => {
           'latitude'     => 42.3592642,
           'longitude'    => -71.0564398,
-          'street'       => '4 South Market Building',
+          'street1'       => '4 South Market Building',
           'state'        => 'Boston',
           'state_code'   => 'MA',
           'country'      => 'United States',
@@ -73,7 +73,7 @@ describe Organization, type: :model do
         {
           'latitude'     => 40.7143528,
           'longitude'    => -74.0059731,
-          'street'      => '#{n} Times Square',
+          'street1'      => '#{n} Times Square',
           'state'        => 'New York',
           'state_code'   => 'NY',
           'country'      => 'United States',
