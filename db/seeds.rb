@@ -13,7 +13,8 @@ NUM_USERS = 5
 
 puts "Populating users..."
 User.destroy_all
-USERS = Array.new(NUM_USERS).map do |user_num|
+USERS = (0...NUM_USERS).map do |user_num|
+  sleep 0.34
   User.create!(RealAddresses.sample_hash.merge(
       first_name: FFaker::Name.first_name,
       last_name:  FFaker::Name.last_name,
@@ -22,7 +23,7 @@ USERS = Array.new(NUM_USERS).map do |user_num|
   ))
 end
 
-# sleep 0.34
+sleep 0.34
 User.create!(RealAddresses.sample_hash.merge(
     first_name: FFaker::Name.first_name,
     last_name:  FFaker::Name.last_name,
@@ -119,6 +120,7 @@ ORGANIZATIONS = [
     'UNICEF',
     'USA Swimming',
 ].map do |organization_name|
+  sleep 0.34
   Organization.create!(RealAddresses.sample_hash.merge(
       name:        organization_name,
       email:       FFaker::Internet.email,
@@ -126,7 +128,6 @@ ORGANIZATIONS = [
       website_url: "http://www.#{organization_name.gsub(' ', '_')}.org",
       charter_page_url: "http://www.#{organization_name.gsub(' ', '_')}.org"
   ))
-  sleep 0.34
 end
 
 
