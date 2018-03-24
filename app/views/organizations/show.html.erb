@@ -26,11 +26,14 @@
       <strong>Members</strong>
       <ul>
         <% @organization.users.each do |user| %>
-          <li>
-            <%= user.name %>
-          </li>
+          <li> <%= user.name %></li>
+          <div class=remove-member-checkbox-hidden id="remove-member-checkbox-hidden">
+         <li><input type="checkbox" class="squaredFour" value="None" name="check" checked /></li>
+       </ul>
+         <%= link_to "Remove" %>
         <% end %>
-      </ul>
+      </div>
+      <%= link_to 'Remove Member'%>
     </div>
 
     <div class="add-member">
@@ -38,8 +41,9 @@
         <%= f.label :email %>
         <%= f.text_field :email %>
         <%= f.submit "Add Member" %>
-        <%= link_to "Edit Organization", edit_organization_path(@organization), html_options = {type: "submit"} %>
       <% end %>
+        <%= link_to "Edit Organization", edit_organization_path(@organization), html_options = {type: "submit"} %>
+
     </div>
   </div>
 </div>
